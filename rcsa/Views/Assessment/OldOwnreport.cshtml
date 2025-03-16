@@ -1,0 +1,172 @@
+﻿@model List<rcsa.Models.AssessmentAnswer>
+@{
+
+    Layout = "~/Views/Shared/_aLayout.cshtml";
+    string userRole = @ViewBag.BranchName; // Replace with dynamic user role if needed
+}
+<div class="container mt-4">
+
+    <div class="table-responsive mt-3">
+        <h5>From Date: @Model.FirstOrDefault()?.fromdate.ToString("yyyy-MM-dd") To Date: @Model.FirstOrDefault()?.todate.ToString("yyyy-MM-dd")</h5>
+        <div class="row mt-4">
+           
+            
+                <div class="table-responsive mt-3">
+
+                    <table id="exportTable" class="table table-striped">
+                        <thead class="table-light">
+                            <tr>
+                            <th>#</th>
+                                
+                                <th>Question</th>
+                                <th>Marks</th>
+                                <th>Answer</th>
+                            <th></th>
+
+
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            @{
+                                int index = 0;
+                                int mainHeadingIndex = 1;
+                            double totalScore = 0;
+                            }
+
+                            @foreach (var mainHeadingGroup in Model.GroupBy(q => q.headingTitel))
+                            {
+                                <!-- Main Heading -->
+                                <tr class="table-success">
+                                    <td colspan="5"><strong>@mainHeadingIndex. @mainHeadingGroup.Key</strong></td>
+                                </tr>
+
+                                int subHeadingIndex = 1;
+
+                                @foreach (var subHeadingGroup in mainHeadingGroup.GroupBy(q => q.subheadingTitel))
+                                {
+                                    <!-- Sub Heading -->
+                                    <tr class="table-info">
+                                        <td colspan="5"><strong>@mainHeadingIndex.@subHeadingIndex @subHeadingGroup.Key</strong></td>
+                                    </tr>
+
+                                    int questionIndex = 1;
+                                    @foreach (var question in subHeadingGroup)
+                                    {
+                                        totalScore = (ViewBag.Branch_type_code == "BRANCH") ? question.BrRTotalScore : question.TotalScore;
+                                    string answerValue = (ViewBag.Branch_type_code == "BRANCH") ? question.BranchAnswer : question.ServiceCenterAnswer;
+                                    string displayAnswer = answerValue == "Yes" ? "Yes" :
+                                    answerValue == "NO" ? "No" :
+                                    answerValue == "NA" ? "N/A" : "";
+
+                                        <tr data-service-center-id="@question.ServiceCenterId">
+                                            <td>@mainHeadingIndex.@subHeadingIndex.@questionIndex</td>
+                                            <td>
+                                                @question.AnswerText
+                                                <input type="hidden" name="[@index].QuestionId" value="@question.QuestionId" />
+                                                <input type="hidden" name="[@index].Marks" value="@question.Marks" />
+                                                <input type="hidden" name="[@index].ServiceCenterId" value="@question.ServiceCenterId" />
+                                                <input type="hidden" name="[@index].TotalScore" value="@question.TotalScore" />
+                                            </td>
+                                            <td>@question.Marks</td>
+                                            <td>
+                                                <div class="col-md-2">
+                                                    <span class="answer-label @(answerValue == "NO" || answerValue == "Yes" ? "clickable" : "")"
+                                                          data-comment="@question.Scomment"
+                                                          onclick="showComment(this)">
+                                                        @displayAnswer
+                                                    </span>
+
+                                                    <input type="hidden" name="[@index].ServiceCenterAnswer" value="@question.ServiceCenterAnswer" />
+                                                    <input type="hidden" name="[@index].BranchAnswer" value="@question.BranchAnswer" />
+                                                    <input type="hidden" name="[@index].Scomment" value="@question.Scomment" />
+                                                </div>
+                                            </td>
+                                        <td> </td>
+                                        </tr>
+
+                                        index++;
+                                        questionIndex++;
+                                    }
+
+                                    subHeadingIndex++;
+                                }
+
+                                mainHeadingIndex++;
+                            }
+                        </tbody>
+
+                        <!-- Total Score Row at the End -->
+                        <tfoot>
+                            <tr class="table-warning">
+                                <td colspan="4" class="text-end"><strong>Total Score:</strong></td>
+                                <td><strong>@ViewBag.TotalScore</strong></td>
+                            </tr>
+                        </tfoot>
+                    </table>
+
+                </div>
+
+        
+
+        </div>
+
+    </div>
+</div>
+<style>
+    .answer-label {
+        font-weight: bold;
+        color: #333;
+        cursor: pointer;
+    }
+
+    .clickable {
+        color: red;
+        text-decoration: underline;
+    }
+</style>
+<script>
+    function checkBranchAnswer(radio) {
+        let selectedValue = radio.value;
+        let index = radio.name.match(/\d+/)[0]; // Extract the index from the name attribute
+        let commentBox = document.getElementById("comment-" + index);
+
+        if (selectedValue === "NA" || selectedValue === "NA") {
+            let existingComment = commentBox.value.trim(); // Get existing comment
+
+            let userComment = prompt("Please enter a comment for this answer:", existingComment); // Pre-fill with existing comment
+            if (userComment !== null) {
+                commentBox.value = userComment; // Update the textarea with the new comment
+            }
+        }
+    }
+    function showComment(element) {
+        let answer = element.innerText.trim(); // Get the displayed answer (Yes, No, NA)
+        let comment = element.getAttribute("data-comment");
+
+        if ((answer === "No" || answer === "N/A") && comment) {
+            alert("Comment: " + comment);
+        }
+    }
+    $(document).ready(function () {
+        $("#searchForm").submit(function (event) {
+            event.preventDefault(); // Prevent form from reloading the page
+
+            var serviceCenterId = $("#ServiceCenterId").val(); // Get input value
+
+            $.ajax({
+                url: "/Assessment/OldOwnreport",
+                type: "GET",
+                data: { ServiceCenterId: serviceCenterId },
+                success: function (response) {
+                    $("#resultTable").html(response); // Load response into the div
+                },
+                error: function () {
+                    $("#resultTable").html("<p style='color: red;'>Error loading data.</p>");
+                }
+            });
+        });
+    });
+
+
+</script>

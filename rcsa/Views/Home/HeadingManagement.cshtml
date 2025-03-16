@@ -1,0 +1,449 @@
+﻿@model IEnumerable<rcsa.Models.Heading>
+
+@{
+    Layout = "~/Views/Shared/_aLayout.cshtml";
+}
+
+<style>
+    /* Add matching styles from previous design */
+    .form-section {
+        background: white;
+        border-radius: 10px;
+        box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+        padding: 25px;
+        margin-bottom: 30px;
+    }
+
+    .table-modern {
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 1px 15px rgba(0, 0, 0, 0.1);
+    }
+
+        .table-modern thead th {
+            background-color: #212529;
+            color: white;
+            font-weight: 600;
+            border-bottom: 2px solid #f4b700;
+        }
+
+    .main-heading-row {
+        background-color: rgba(177, 0, 0, 0.05);
+        transition: all 0.2s ease;
+    }
+
+    .subheading-item {
+        background-color: rgba(244, 183, 0, 0.05);
+        padding: 8px;
+        margin: 4px 0;
+        border-radius: 4px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .drag-handle {
+        color: #f4b700;
+        transition: transform 0.2s ease;
+    }
+
+        .drag-handle:hover {
+            transform: scale(1.2);
+            cursor: grab;
+        }
+
+    .btn-primary-theme {
+        background-color: #b10000;
+        color: white;
+        border: none;
+    }
+
+    .btn-secondary-theme {
+        background-color: #f4b700;
+        color: #212529;
+        border: none;
+    }
+</style>
+
+<div class="container mt-4">
+    <h2 class="text-primary-theme mb-4 fw-bold">Heading Management</h2>
+
+    <div class="form-section">
+        <div class="table-responsive">
+            <table class="table table-modern">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Title</th>
+                        <th>Subheadings</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="headings-container">
+                    @foreach (var item in Model.OrderBy(h => h.Orders))
+                    {
+                        <tr id="row_@item.Id" class="main-heading-row" data-heading-id="@item.Id">
+                            <td>@item.Id</td>
+                            <td>
+                                <i class="bi bi-grip-vertical drag-handle"></i>
+                                <span class="ms-2">@item.MainHeadings</span>
+                            </td>
+                            <td>
+                                @if (item.Subheadings != null && item.Subheadings.Any())
+                                {
+                                    <ul class="list-unstyled">
+                                        @foreach (var sub in item.Subheadings)
+                                        {
+                                            <li class="subheading-item" data-sub-id="@sub.Id">
+                                                <span>@sub.SubHeadingT</span>
+                                                <button type="button" class="btn btn-danger btn-sm" onclick="deleteSubheading(@sub.Id)">
+                                                    <i class="bi bi-trash"></i>
+                                                </button>
+                                            </li>
+                                        }
+                                    </ul>
+                                }
+                                else
+                                {
+                                    <span class="text-muted">No subheadings</span>
+                                }
+                            </td>
+                            <td>
+                                <button type="button" class="btn btn-secondary-theme btn-sm" onclick="enableEdit(@item.Id)">
+                                    <i class="bi bi-pencil"></i>
+                                </button>
+                                <button type="button" class="btn btn-primary-theme btn-sm" onclick="deleteHeading(@item.Id)">
+                                    <i class="bi bi-trash"></i>
+                                </button>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="form-section">
+        <h4 class="text-primary-theme mb-4">Add New Heading</h4>
+        <form method="post" asp-action="HeadingManagement">
+            @Html.AntiForgeryToken()
+            <div class="row g-3 align-items-end">
+                <div class="col-md-4">
+                    <label class="form-label">Main Heading Title</label>
+                    <input type="text" name="MainHeading" class="form-control" required />
+                </div>
+                <div class="col-md-2">
+                    <button type="submit" class="btn btn-secondary-theme w-100">
+                        <i class="bi bi-plus-circle me-2"></i>Add
+                    </button>
+                </div>
+            </div>
+        </form>
+
+        <hr class="my-4">
+
+        <h4 class="text-primary-theme mb-4">Add Subheading</h4>
+        <form action="@Url.Action("SubHeadingManagement", "Home")" method="post">
+            @Html.AntiForgeryToken()
+            <div class="row g-3 align-items-end">
+                <div class="col-md-3">
+                    <label class="form-label">Parent Heading</label>
+                    <select name="HeadingId" class="form-select" required>
+                        <option value="">Select Heading</option>
+                        @if (ViewBag.Headings != null)
+                        {
+                            @foreach (var heading in ViewBag.Headings)
+                            {
+                                <option value="@heading.Id">@heading.MainHeadings</option>
+                            }
+                        }
+                    </select>
+                </div>
+                <div class="col-md-3">
+                    <label class="form-label">Subheading Title</label>
+                    <input type="text" name="SubHeadingT" class="form-control" required />
+                </div>
+                <div class="col-md-2">
+                    <button type="submit" class="btn btn-secondary-theme w-100">
+                        <i class="bi bi-plus-circle me-2"></i>Add
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="modal fade" id="deleteConfirmModal" tabindex="-1" aria-labelledby="deleteConfirmModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="deleteConfirmModalLabel">Delete</h5>
+                    @* <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> *@
+                </div>
+                <div class="modal-body">
+                    Are you sure you want to delete this item?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-danger" id="confirmDeleteBtn">Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="~/js/jquery-3.6.0.min.js"></script>
+
+<script>
+    let deleteId = null;
+    let deleteType = '';
+
+    function showDeleteModal(id, type) {
+        deleteId = id;
+        deleteType = type;
+        $("#deleteConfirmModal").modal("show");
+    }
+
+    // When confirm delete button is clicked
+    $("#confirmDeleteBtn").click(function () {
+        try {
+            if (deleteType === "heading") {
+                deleteHeadingConfirmed(deleteId);
+            } else if (deleteType === "subheading") {
+                deleteSubheadingConfirmed(deleteId);
+            }
+            $("#deleteConfirmModal").modal("hide");
+        } catch (error) {
+            console.error("Error in delete confirmation:", error);
+            alert("An unexpected error occurred. Please try again.");
+        }
+    });
+
+    function deleteHeading(id) {
+        try {
+            showDeleteModal(id, "heading");
+        } catch (error) {
+            console.error("Error opening delete modal:", error);
+        }
+    }
+
+    function deleteSubheading(subId) {
+        try {
+            showDeleteModal(subId, "subheading");
+        } catch (error) {
+            console.error("Error opening delete modal:", error);
+        }
+    }
+
+    function deleteHeadingConfirmed(id) {
+        try {
+            $.ajax({
+                url: '/Assessment/DeleteHeading/' + id,
+                type: 'POST',
+                headers: {
+                    'RequestVerificationToken': $('input[name="__RequestVerificationToken"]').val()
+                },
+                success: function (response) {
+                    if (response.success) {
+                        $('#row_' + id).remove();
+                    } else {
+                        console.error("Server Error:", response.message);
+                        alert('Error: ' + (response.message || 'Failed to delete heading.'));
+                    }
+                },
+                error: function (xhr, status, error) {
+                    console.error("AJAX error:", status, error);
+                    alert("Error deleting heading. Please check your network or try again later.");
+                }
+            });
+        } catch (error) {
+            console.error("Error in deleteHeadingConfirmed:", error);
+            alert("An unexpected error occurred while deleting the heading.");
+        }
+    }
+
+    function deleteSubheadingConfirmed(subId) {
+        try {
+            $.ajax({
+                url: '/Assessment/DeleteSubheading/' + subId,
+                type: 'POST',
+                headers: {
+                    'RequestVerificationToken': $('input[name="__RequestVerificationToken"]').val()
+                },
+                success: function (response) {
+                    if (response.success) {
+                        $('.subheading-item[data-sub-id="' + subId + '"]').remove();
+                    } else {
+                        console.error("Server Error:", response.message);
+                        alert('Error: ' + (response.message || 'Failed to delete subheading.'));
+                    }
+                },
+                error: function (xhr, status, error) {
+                    console.error("AJAX error:", status, error);
+                    alert("Error deleting subheading. Please check your network or try again later.");
+                }
+            });
+        } catch (error) {
+            console.error("Error in deleteSubheadingConfirmed:", error);
+            alert("An unexpected error occurred while deleting the subheading.");
+        }
+    }
+
+</script>
+
+<script>
+    function confirmDelete() {
+        return confirm('Are you sure you want to delete this HeadingManagement?');
+    }
+</script>
+
+
+<script>
+    // Function to enable editing for both main heading and subheadings
+    function enableEdit(id) {
+        var row = $('#row_' + id);
+        var titleTd = row.find('td:eq(1)'); // Main heading is in the second column
+        var subheadingsTd = row.find('td:eq(2)'); // Subheadings are in the third column
+        var currentTitle = titleTd.text().trim();
+
+        // Replace main heading text with input field
+        titleTd.html(`<input type="text" class="form-control" value="${currentTitle}" id="editTitle_${id}">`);
+
+        // Replace subheadings with editable inputs
+        var subheadingsHtml = '<ul>';
+        row.find('.subheading-item').each(function () {
+            var subId = $(this).data('sub-id');
+            var subText = $(this).text().trim();
+            subheadingsHtml += `
+                <li>
+                    <input type="text" class="form-control subheading-input" value="${subText}" id="editSubheading_${subId}">
+                </li>
+            `;
+        });
+        subheadingsHtml += '</ul>';
+        subheadingsTd.html(subheadingsHtml);
+
+        // Replace action buttons with Save and Cancel
+        var actionsTd = row.find('td:eq(3)');
+        actionsTd.html(`
+            <button class="btn btn-success btn-sm" onclick="saveEdit(${id})"><i class="bi bi-check"></i></button>
+            <button class="btn btn-secondary btn-sm" onclick="cancelEdit(${id}, '${currentTitle}')"><i class="bi bi-x"></i></button>
+        `);
+    }
+
+    // Function to save edits for both main heading and subheadings
+    function saveEdit(id) {
+        var newTitle = $('#editTitle_' + id).val();
+        var subheadingsData = [];
+
+        // Collect subheading data
+        $('#row_' + id).find('.subheading-input').each(function () {
+            var subId = $(this).attr('id').replace('editSubheading_', '');
+            var newSubheading = $(this).val();
+            subheadingsData.push({ Id: subId, SubHeadingT: newSubheading });
+        });
+
+        // Send data to server
+        $.ajax({
+            url: '@Url.Action("SaveHeadingAndSubheadings", "Assessment")',
+            type: 'POST',
+            data: {
+                HeadingId: id,
+                MainHeadings: newTitle,
+                Subheadings: subheadingsData
+            },
+            headers: {
+                'RequestVerificationToken': $('input[name="__RequestVerificationToken"]').val()
+            },
+            success: function (response) {
+                if (response.success) {
+                    // Update main heading text
+                    $('#row_' + id).find('td:eq(1)').text(newTitle);
+
+                    // Re-render subheadings
+                    var subheadingsHtml = '<ul>';
+                    response.subheadings.forEach(function (sub) {
+                        subheadingsHtml += `<li class="subheading-item" data-sub-id="${sub.id}">${sub.subHeadingT}</li>`;
+                    });
+                    subheadingsHtml += '</ul>';
+                    $('#row_' + id).find('td:eq(2)').html(subheadingsHtml);
+
+                    // Restore original buttons
+                    $('#row_' + id).find('td:eq(3)').html(`
+                        <button class="btn btn-warning btn-sm" onclick="enableEdit(${id})"><i class="bi bi-pencil"></i></button>
+                        <button class="btn btn-danger btn-sm" onclick="deleteHeading(${id})"><i class="bi bi-trash"></i></button>
+                    `);
+                } else {
+                    alert('Error: ' + (response.message || 'Failed to update heading and subheadings.'));
+                }
+            },
+            error: function (xhr) {
+                alert('Error updating heading and subheadings. Please try again.');
+            }
+        });
+    }
+
+    // Function to cancel edits
+    function cancelEdit(id, originalTitle) {
+        var row = $('#row_' + id);
+        row.find('td:eq(1)').text(originalTitle); // Restore main heading text
+
+        // Re-render original subheadings
+        var subheadingsHtml = '<ul>';
+        row.find('.subheading-item').each(function () {
+            var subId = $(this).data('sub-id');
+            var subText = $(this).text().trim();
+            subheadingsHtml += `<li class="subheading-item" data-sub-id="${subId}">${subText}</li>`;
+        });
+        subheadingsHtml += '</ul>';
+        row.find('td:eq(2)').html(subheadingsHtml);
+
+        // Restore original buttons
+        row.find('td:eq(3)').html(`
+            <button class="btn btn-warning btn-sm" onclick="enableEdit(${id})"><i class="bi bi-pencil"></i></button>
+            <button class="btn btn-danger btn-sm" onclick="deleteHeading(${id})"><i class="bi bi-trash"></i></button>
+        `);
+    }
+</script>
+<!-- Add these at the end of your existing scripts -->
+<link rel="stylesheet" href="~/css/jquery-ui.css">
+
+
+<script src="~/js/jquery-ui.js"></script>
+
+
+<script>
+    $(function() {
+        $("#headings-container").sortable({
+            axis: "y", // Allow vertical dragging
+            handle: ".drag-handle", // Use the drag handle icon
+            update: function(event, ui) {
+                // Get the new order of headings
+                var order = [];
+                $('#headings-container tr').each(function() {
+                    order.push($(this).data("heading-id")); // Collect heading IDs in the new order
+                });
+
+                // Send the new order to the server
+                $.ajax({
+                    url: '@Url.Action("UpdateHeadingOrder", "Assessment")', // Endpoint to handle the update
+                    type: 'POST',
+                    headers: {
+                        'RequestVerificationToken': $('input[name="__RequestVerificationToken"]').val() // Anti-forgery token
+                    },
+                    data: {
+                        headingIds: order // Send the ordered list of IDs
+                    },
+                    success: function(response) {
+                        if (response.success) {
+                            console.log("Order updated successfully!");
+                        } else {
+                            console.error("Error updating order:", response.message);
+                        }
+                    },
+                    error: function(xhr, status, error) {
+                        console.error("AJAX error:", error);
+                    }
+                });
+            }
+        }).disableSelection();
+    });
+</script>

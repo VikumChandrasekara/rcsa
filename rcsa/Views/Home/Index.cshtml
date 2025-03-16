@@ -1,0 +1,234 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<style>
+    /* Full-page background image with overlay */
+    body {
+        background: url('/images/360_F_849654745_W69wuT22U3q0QdRg8joBEza20ixbMmas.jpg') no-repeat center center fixed;
+        background-size: cover;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: #333;
+        height: 100vh;
+        margin: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+    }
+
+    /* Glass morphism effect for the login container */
+    .login-container {
+        background: rgba(255, 255, 255, 0.1); /* Semi-transparent white */
+        backdrop-filter: blur(10px); /* Blur effect */
+        border-radius: 20px;
+        border: 1px solid rgba(255, 255, 255, 0.2); /* Light border */
+        box-shadow: 0px 8px 32px rgba(0, 0, 0, 0.2);
+        width: 400px;
+        padding: 30px;
+        text-align: center;
+        animation: fadeIn 0.5s ease-in-out;
+    }
+
+    /* Tab buttons with modern styling */
+    .tab-buttons {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 25px;
+    }
+
+    .tab-button {
+        flex: 1;
+        padding: 12px;
+        border: none;
+        background: rgba(255, 255, 255, 0.2); /* Semi-transparent background */
+        color: white;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+        border-radius: 10px;
+        transition: all 0.3s ease;
+        margin: 0 5px;
+    }
+
+        .tab-button.active {
+            background: linear-gradient(135deg, #b10000, #ffcc00); /* Gradient for active tab */
+            color: white;
+            transform: scale(1.05);
+        }
+
+        .tab-button:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: scale(1.05);
+        }
+
+    /* Login form design */
+    .login-form {
+        display: none;
+        animation: slideIn 0.5s ease-in-out;
+    }
+
+        .login-form.active {
+            display: block;
+        }
+
+    /* Input field container */
+    .form-group {
+        margin-bottom: 20px;
+        text-align: left;
+    }
+
+    /* Labels */
+    label {
+        font-weight: 600;
+        color: white;
+        display: block;
+        margin-bottom: 8px;
+    }
+
+    /* Input fields with modern styling */
+    input[type="text"],
+    input[type="password"] {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        border-radius: 10px;
+        box-sizing: border-box;
+        font-size: 16px;
+        background: rgba(255, 255, 255, 0.1);
+        color: white;
+        outline: none;
+        transition: border 0.3s ease;
+    }
+
+        input[type="text"]:focus,
+        input[type="password"]:focus {
+            border: 1px solid #b10000; /* Highlight border on focus */
+        }
+
+    /* Placeholder styling */
+    input::placeholder {
+        color: rgba(255, 255, 255, 0.7);
+    }
+
+    /* Stylish login button */
+    button[type="submit"] {
+        background: linear-gradient(135deg, #b10000, #f4b700); /* Gradient button */
+        color: white;
+        border: none;
+        padding: 14px;
+        border-radius: 10px;
+        cursor: pointer;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        width: 100%;
+        font-size: 16px;
+        margin-top: 10px;
+    }
+
+        button[type="submit"]:hover {
+            transform: scale(1.05);
+            box-shadow: 0px 4px 15px rgba(255, 111, 97, 0.4);
+        }
+
+    /* User-friendly warning messages */
+    .warning {
+        background: rgba(255, 111, 97, 0.3);
+        padding: 12px;
+        border-radius: 10px;
+        font-size: 14px;
+        color: white;
+        font-weight: 600;
+        text-align: center;
+        margin-top: 20px;
+        animation: fadeIn 0.5s ease-in-out;
+    }
+
+    /* Animations */
+    @@keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+
+    @@keyframes slideIn {
+        from {
+            transform: translateY(-20px);
+            opacity: 0;
+        }
+        to {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+</style>
+
+<div class="login-container">
+    <!-- Tab buttons -->
+    <div class="tab-buttons">
+        <button class="tab-button active" onclick="switchTab('rcsa')">RCSA Login</button>
+        <button class="tab-button" onclick="switchTab('rro')">RRO Login</button>
+    </div>
+
+    <!-- RCSA Login Form -->
+    <form method="post" action="/Home/Login" class="login-form active" id="rcsa-form">
+        <h2 style="color:white; margin-bottom: 20px;">The Risk Control Self-Assessment (RCSA) System</h2>
+
+        <div class="form-group">
+            <label>Username:</label>
+            <input type="text" name="username" placeholder="Enter your username" required />
+        </div>
+
+        <div class="form-group">
+            <label>Password:</label>
+            <input type="password" name="password" placeholder="Enter your password" required />
+        </div>
+
+        <button type="submit">Login</button>
+    </form>
+
+    <!-- RRO Login Form -->
+    <form method="post" action="/Home/RROLogin" class="login-form" id="rro-form">
+        <h2 style="color:white; margin-bottom: 20px;">The Risk Control Self-Assessment (RCSA) System - RRO Login</h2>
+
+        <div class="form-group">
+            <label>Username:</label>
+            <input type="text" name="UserName" placeholder="Enter your username" required />
+        </div>
+
+        <div class="form-group">
+            <label>Password:</label>
+            <input type="password" name="Password" placeholder="Enter your password" required />
+        </div>
+
+        <button type="submit">Login</button>
+    </form>
+
+    <!-- Warning message -->
+    @if (ViewBag.Message != null)
+    {
+        <p class="warning">@ViewBag.Message</p>
+    }
+</div>
+
+<script>
+    // Function to switch between tabs
+    function switchTab(tabName) {
+        // Hide all forms
+        document.querySelectorAll('.login-form').forEach(form => {
+            form.classList.remove('active');
+        });
+
+        // Show the selected form
+        document.getElementById(`${tabName}-form`).classList.add('active');
+
+        // Update tab button styles
+        document.querySelectorAll('.tab-button').forEach(button => {
+            button.classList.remove('active');
+        });
+        document.querySelector(`.tab-button[onclick="switchTab('${tabName}')"]`).classList.add('active');
+    }
+</script>

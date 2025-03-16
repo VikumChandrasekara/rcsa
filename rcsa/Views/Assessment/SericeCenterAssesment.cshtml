@@ -1,0 +1,600 @@
+﻿@model List<rcsa.Models.assessments_pe>
+
+@{
+    Layout = "~/Views/Shared/_aLayout.cshtml";
+    string userRole = @ViewBag.BranchName; // Replace with dynamic user role if needed
+}
+
+<!-- Styles -->
+<style>
+    body {
+        font-family: 'Arial', sans-serif;
+        background-color: #f4f7fa;
+        margin: 0;
+        padding: 0;
+    }
+
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+
+    h2.text-success {
+        color: #2dbe60;
+        text-align: center;
+        margin-bottom: 30px;
+        font-size: 2rem;
+    }
+
+    .table-responsive {
+        margin-top: 20px;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    th, td {
+        padding: 12px;
+        text-align: left;
+    }
+
+    th {
+        background-color: #f1f1f1;
+        color: #333;
+        font-weight: bold;
+    }
+
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+
+    tr:hover {
+        background-color: #f1f1f1;
+    }
+
+    .table-light {
+        background-color: #f9f9f9;
+    }
+
+    .table-success {
+        background-color: #d4edda;
+    }
+
+    .table-info {
+        background-color: #d1ecf1;
+    }
+
+    .btn-primary {
+        background-color: #007bff;
+        color: white;
+        border: none;
+        padding: 12px 20px;
+        border-radius: 5px;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+
+    .form-control.comment-field {
+        display: none;
+        width: 100%;
+        padding: 10px;
+        border-radius: 5px;
+        border: 1px solid #ddd;
+        background-color: #fff;
+    }
+
+        .form-control.comment-field:focus {
+            border-color: #007bff;
+            outline: none;
+        }
+
+    .alert-warning {
+        background-color: #fff3cd;
+        color: #856404;
+        padding: 15px;
+        border-radius: 5px;
+        margin-bottom: 20px;
+    }
+
+    .d-flex {
+        display: flex;
+        align-items: center;
+    }
+
+    .me-3 {
+        margin-right: 15px;
+    }
+
+    label {
+        font-size: 1.1rem;
+        cursor: pointer;
+    }
+
+    input[type="radio"] {
+        margin-right: 10px;
+        cursor: pointer;
+    }
+
+    .notapplicable-answer,
+    .negative-answer {
+        cursor: pointer;
+    }
+
+    .notapplicable-answer {
+        color: #ffb100;
+    }
+
+    .negative-answer {
+        color: #d9534f;
+    }
+
+    /* Adjust spacing */
+    .container.mt-4 {
+        padding-top: 10px;
+    }
+
+    /* Custom Radio Button Styling */
+    .answer-options {
+        display: flex;
+        gap: 20px;
+    }
+
+    .answer-option {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+    }
+
+        .answer-option label {
+            margin: 0;
+            font-size: 1rem;
+        }
+
+        .answer-option input[type="radio"] {
+            margin: 0;
+        }
+
+        .answer-option .icon {
+            font-size: 1.2rem;
+        }
+
+            .answer-option .icon.yes {
+                color: #28a745; /* Green for Yes */
+            }
+
+            .answer-option .icon.no {
+                color: #dc3545; /* Red for No */
+            }
+
+            .answer-option .icon.na {
+                color: #ffc107; /* Yellow for Not Applicable */
+            }
+</style>
+
+<div class="container mt-4">
+    <!-- Page Title -->
+    <h2 class="text-success">Assessment</h2>
+   
+    <!-- Assessment Table -->
+    <div class="table-responsive mt-3">
+        @if (!string.IsNullOrEmpty(ViewBag.AssessmentMessage))
+        {
+            <div class="alert alert-warning">
+                @ViewBag.AssessmentMessage
+            </div>
+        }
+        else
+        {
+            <div class="answer-option">
+                <label class="icon yes">✔</label>
+                <label>Yes</label>
+                <label class="icon no">✖</label>
+                <label>No</label>
+                <label class="icon na">⬜</label>
+                <label>Not Applicable</label>
+            </div>
+      <form action="@Url.Action("SaveSeAnswers", "Assessment")" method="post" onsubmit="return validateForm() && confirmSave()">
+                @Html.AntiForgeryToken()
+                <div class="table-responsive mt-3">
+                    <table class="table table-striped">
+                        <thead class="table-light">
+                            <tr>
+                                <th></th>
+                                <th>Question</th>
+                                <th>Marks</th>
+                                <th>Answer</th>
+                                <th>Comment</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @{
+                                int headingIndex = 1; // Main heading counter
+                                int index = 0; // Row index for model binding
+                            }
+
+                            @foreach (var mainHeadingGroup in Model.GroupBy(q => q.headingTitel))
+                            {
+                                int subHeadingIndex = 1; // Subheading counter under each main heading
+
+                                <!-- Main Heading -->
+                                <tr class="table-success">
+                                    <td colspan="6"><strong>@headingIndex. @mainHeadingGroup.Key</strong></td>
+                                </tr>
+
+                                @foreach (var subHeadingGroup in mainHeadingGroup.GroupBy(q => q.subheadingTitel))
+                                {
+                                    int questionIndex = 1; // Question counter under each subheading
+
+                                    <!-- Sub Heading -->
+                                    <tr class="table-info">
+                                        <td colspan="6"><strong>@headingIndex.@subHeadingIndex @subHeadingGroup.Key</strong></td>
+                                    </tr>
+
+                                    @foreach (var question in subHeadingGroup)
+                                    {
+                                        <tr data-naflag="@question.NAflag">
+                                            <td>@headingIndex.@subHeadingIndex.@questionIndex</td>
+
+                                            <td>
+                                                @question.QuestionText
+                                                <input type="hidden" name="[@index].QuestionId" value="@question.QuestionId" />
+                                                <input type="hidden" name="[@index].QuestionText" value="@question.QuestionText" />
+                                                <input type="hidden" name="[@index].Marks" value="@question.Marks" />
+                                                <input type="hidden" name="[@index].MainHeading" value="@question.MainHeading" />
+                                                <input type="hidden" name="[@index].SubHeading" value="@question.SubHeading" />
+                                                <input type="hidden" name="[@index].headingTitel" value="@question.headingTitel" />
+                                                <input type="hidden" name="[@index].subheadingTitel" value="@question.subheadingTitel" />
+                                                <input type="hidden" name="[@index].fromdate" value="@question.fromdate" />
+                                                <input type="hidden" name="[@index].todate" value="@question.todate" />
+                                                <input type="hidden" name="[@index].NAflag" value="@question.NAflag" />
+                                                <input type="hidden" name="[@index].Astype" value="@question.Astype" />
+                                            </td>
+                                            <td>@question.Marks</td>
+                                            <td>
+                                                <div class="answer-options">
+                                                    <div class="answer-option">
+                                                        <input type="radio" name="[@index].ServiceCenterAnswer" value="Yes" id="yes-@index" />
+                                                        <label for="yes-@index" class="icon yes">✔</label>
+                                                        @* <label for="yes-@index">Yes</label> *@
+                                                    </div>
+                                                    <div class="answer-option">
+                                                        <input type="radio" name="[@index].ServiceCenterAnswer" value="NO" id="no-@index" class="negative-answer" />
+                                                        <label for="no-@index" class="icon no">✖</label>
+                                                    @*     <label for="no-@index">No</label> *@
+                                                    </div>
+                                                    <div class="answer-option">
+                                                        <input type="radio" name="[@index].ServiceCenterAnswer" value="NA" id="na-@index" class="notapplicable-answer" />
+                                                        <label for="na-@index" class="icon na">⬜</label>
+                                                        @* <label for="na-@index">Not Applicable</label> *@
+                                                    </div>
+                                                </div>
+                                            </td>
+                                             <td ondblclick="showCommentPopup(@index)">
+                                             <input type="text" name="[@index].Comment" class="form-control comment-field" style="display: none;" />
+                                                 </td>
+                                        </tr>
+                                        index++; // Increment index for each question
+                                        questionIndex++; // Increment question number
+                                    }
+
+                                    subHeadingIndex++; // Increment subheading number
+                                }
+
+                                headingIndex++; // Increment heading number
+                            }
+                        </tbody>
+                    </table>
+                </div>
+                <button type="submit" class="btn btn-primary">Save</button>
+            </form>
+        }
+    </div>
+</div>
+<script>
+ document.addEventListener("DOMContentLoaded", function () {
+        // Function to show comment popup
+        window.showCommentPopup = function (index) {
+            // Get the comment input field
+            let commentField = document.querySelector(`input[name="[${index}].Comment"]`);
+
+            // Create popup overlay
+            let popupOverlay = document.createElement("div");
+            popupOverlay.className = "popup-overlay";
+
+            // Create popup container
+            let popupContainer = document.createElement("div");
+            popupContainer.className = "popup-container";
+
+            // Create popup header
+            let popupHeader = document.createElement("div");
+            popupHeader.className = "popup-header";
+            popupHeader.textContent = "Add Comment";
+
+            // Create textarea for comment
+            let textarea = document.createElement("textarea");
+            textarea.className = "popup-textarea";
+            textarea.placeholder = "Enter your comment here...";
+            textarea.value = commentField.value;
+
+            // Create popup actions (buttons)
+            let popupActions = document.createElement("div");
+            popupActions.className = "popup-actions";
+
+            // Save button
+            let saveButton = document.createElement("button");
+            saveButton.className = "popup-button save";
+            saveButton.textContent = "Save";
+            saveButton.addEventListener("click", function () {
+                if (textarea.value.trim() === "") {
+                    alert("Comment is mandatory for NO or NA answers.");
+                    return;
+                }
+                commentField.value = textarea.value;
+                document.body.removeChild(popupOverlay);
+            });
+
+            // Cancel button
+            let cancelButton = document.createElement("button");
+            cancelButton.className = "popup-button cancel";
+            cancelButton.textContent = "Cancel";
+            cancelButton.addEventListener("click", function () {
+                document.body.removeChild(popupOverlay);
+            });
+
+            // Append buttons to actions
+            popupActions.appendChild(cancelButton);
+            popupActions.appendChild(saveButton);
+
+            // Append elements to popup container
+            popupContainer.appendChild(popupHeader);
+            popupContainer.appendChild(textarea);
+            popupContainer.appendChild(popupActions);
+
+            // Append popup container to overlay
+            popupOverlay.appendChild(popupContainer);
+
+            // Append overlay to body
+            document.body.appendChild(popupOverlay);
+
+            // Focus on textarea when popup opens
+            textarea.focus();
+        };
+
+        // Function to validate the form before submission
+        function validateForm() {
+            let isValid = true;
+            let unansweredQuestions = [];
+            let missingComments = [];
+
+            document.querySelectorAll("tr[data-naflag]").forEach((row, index) => {
+                // Check if an answer is selected
+                let selectedAnswer = row.querySelector('input[type="radio"]:checked');
+                if (!selectedAnswer) {
+                    unansweredQuestions.push(index + 1);
+                    isValid = false;
+                } else {
+                    // Check if comment is required
+                    if (selectedAnswer.value === "NO" || selectedAnswer.value === "NA") {
+                        let commentField = row.querySelector('input[type="text"]');
+                        if (!commentField.value.trim()) {
+                            missingComments.push(index + 1);
+                            isValid = false;
+                        }
+                    }
+                }
+            });
+
+            // Display validation messages
+            if (unansweredQuestions.length > 0) {
+                alert("Please answer all questions. Unanswered questions: " + unansweredQuestions.join(", "));
+            }
+            if (missingComments.length > 0) {
+                alert("Comment is mandatory for NO or NA answers. Missing comments for questions: " + missingComments.join(", "));
+            }
+
+            return isValid;
+        }
+
+        // Attach validation to form submission
+        document.querySelector("form").addEventListener("submit", function (event) {
+            if (!validateForm()) {
+                event.preventDefault(); // Prevent form submission if validation fails
+            }
+        });
+
+        // Rest of your existing JavaScript code...
+    });
+
+    document.addEventListener("DOMContentLoaded", function () {
+        document.querySelectorAll("tr").forEach(row => {
+            let naFlag = row.getAttribute("data-naflag");
+            if (naFlag === "1") {
+                row.querySelectorAll(".notapplicable-answer").forEach(input => {
+                    input.closest(".answer-option").style.display = "none";
+                });
+            }
+        });
+    });
+     function confirmSave() {
+            return confirm("Are you dobule check answers?");
+        }
+    document.addEventListener("DOMContentLoaded", function () {
+        const formKey = "savedAssessmentAnswers"; // Key for local storage
+
+        // Function to save data to Local Storage
+        function saveToLocalStorage() {
+            let answers = {};
+            document.querySelectorAll('input[type="radio"]:checked').forEach(radio => {
+                answers[radio.name] = {
+                    value: radio.value,
+                    className: radio.className
+                };
+            });
+            document.querySelectorAll('input[type="text"]').forEach(input => {
+                answers[input.name] = input.value;
+            });
+            localStorage.setItem(formKey, JSON.stringify(answers));
+        }
+
+        // Function to load data from Local Storage
+        function loadFromLocalStorage() {
+            let savedAnswers = JSON.parse(localStorage.getItem(formKey) || "{}");
+            document.querySelectorAll('input[type="radio"]').forEach(radio => {
+                if (savedAnswers[radio.name] && savedAnswers[radio.name].value === radio.value) {
+                    radio.checked = true;
+                    // Show/hide comment field based on the value
+                    let parent = radio.closest('tr');
+                    let commentField = parent.querySelector('.comment-field');
+                    if (radio.value === "NO" || radio.value === "NA") {  // 0 = negative, 2 = not applicable
+                        commentField.style.display = 'block';
+                    } else {
+                        commentField.style.display = 'none';
+                    }
+                }
+            });
+            document.querySelectorAll('input[type="text"]').forEach(input => {
+                if (savedAnswers[input.name]) {
+                    input.value = savedAnswers[input.name];
+                }
+            });
+        }
+
+        // Function to clear Local Storage when form is submitted
+        function clearLocalStorage() {
+            localStorage.removeItem(formKey);
+        }
+
+        // Attach event listener to all radio buttons
+        document.querySelectorAll('input[type="radio"]').forEach(radio => {
+            radio.addEventListener("change", saveToLocalStorage);
+        });
+
+        // Attach event listener to text input for comment
+        document.querySelectorAll('input[type="text"]').forEach(input => {
+            input.addEventListener("change", saveToLocalStorage);
+        });
+
+        // Attach event listener to form submission
+        document.querySelector("form").addEventListener("submit", function () {
+            clearLocalStorage();
+        });
+
+        // Load saved data from local storage when page loads
+        loadFromLocalStorage();
+
+        // Show comment field if negative or notapplicable is selected
+        document.querySelectorAll('input[type="radio"]').forEach(radio => {
+            radio.addEventListener('change', function () {
+                let parent = this.closest('tr');
+                let commentField = parent.querySelector('.comment-field');
+                if (this.value === "NO" || this.value === "NA") {  // 0 = negative, 2 = not applicable
+                    commentField.style.display = 'block';
+                } else {
+                    commentField.style.display = 'none';
+                    commentField.value = ''; // Clear comment if answer is changed
+                }
+            });
+        });
+    });
+    function confirmSave() {
+        return confirm("Are you sure you want to save?");
+    }
+  
+
+
+
+
+</script>
+
+<style>/* Popup Styles */
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    animation: fadeIn 0.3s ease;
+}
+
+.popup-container {
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    width: 400px;
+    max-width: 90%;
+    animation: slideIn 0.3s ease;
+}
+
+.popup-header {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.popup-textarea {
+    width: 100%;
+    height: 120px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    resize: none;
+    margin-bottom: 15px;
+    transition: border-color 0.3s ease;
+}
+
+.popup-textarea:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+.popup-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.popup-button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.popup-button.save {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.popup-button.save:hover {
+    background-color: #0056b3;
+}
+
+.popup-button.cancel {
+    background-color: #f1f1f1;
+    color: #333;
+}
+
+.popup-button.cancel:hover {
+    background-color: #ddd;
+}
+
+</style>

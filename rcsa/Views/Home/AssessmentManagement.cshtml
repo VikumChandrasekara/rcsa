@@ -1,0 +1,128 @@
+﻿@model List<rcsa.Models.Assessment> 
+
+@{
+    ViewData["Title"] = "Add Assessment";
+
+    Layout = "~/Views/Shared/_aLayout.cshtml";
+}
+
+<div class="container mt-4">
+    <!-- Page Title -->
+    <h2 class="text-success">Add Assessment</h2>
+
+    <!-- Assessment Table -->
+    <div class="table-responsive mt-3">
+        <table class="table table-striped">
+            <thead class="table-light">
+                <tr>
+                    <th>Main Heading</th>
+                    <th>Question</th>
+                    <th>Marks</th>
+                    <th>Actions</th>
+                    <th>NA Flag</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.MainHeading</td>
+                        <td>@item.Question</td>
+                        <td>@item.Marks</td>
+                        <td>
+                            <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-warning btn-sm">
+                                <i class="bi bi-pencil"></i>
+                            </a>
+                            <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this item?');">
+                                <i class="bi bi-trash"></i>
+                            </a>
+                        </td>
+                        <td>
+                            <label class="me-3">
+                                <input type="radio" name="ServiceCenterAnswer_@item.Id" value="Yes" @(item.NAflag == 1 ? "disabled" : "")
+                                       onchange="updateNAFlag(@item.Id)" />
+                                ✔
+                            </label>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Add Assessment Form -->
+    <h3 class="text-success mt-4">Add Question</h3>
+    <form asp-action="Create" method="post">
+        <div class="row g-3">
+            <div class="col-md-3">
+                <label class="form-label">Enter Question</label>
+                <textarea name="Question" class="form-control" required></textarea>
+            </div>
+            <div class="col-md-2">
+                <label class="form-label">Marks</label>
+                <input type="number" name="Marks" class="form-control" required />
+            </div>
+            <div class="col-md-2">
+                <label class="form-label">Heading</label>
+                <select name="MainHeading" class="form-control" required>
+
+                    @if (ViewBag.Headings != null)
+                    {
+                        @foreach (var heading in ViewBag.Headings)
+                        {
+                            <option value="@heading.Id">@heading.MainHeadings</option>
+                        }
+                    }
+                  
+                </select>
+            </div>
+
+            <div class="col-md-2">
+                <label class="form-label">SubHeading</label>
+                <select id="SubHeading" name="SubHeading" class="form-control" required>
+                    <option value="1">On-line Audit</option>
+                    <option value="2">Voucher Cancellation process</option>
+                    <option value="1">Are escape routes:</option>
+                    <option value="2">Are escape routes:t</option>
+                    <option value="1">A</option>
+                    <option value="2">B</option>
+                    <option value="3">O</option>
+                </select>
+            </div>
+            <div class="col-md-1 d-flex align-items-end">
+                <button type="Add" class="btn btn-success">
+                    <i class="bi bi-plus-circle"></i> Submit
+                </button>
+            </div>
+        </div>
+    </form>
+    
+   
+        <form method="post" action="@Url.Action("InsertAllAssessments", "Home")">
+            <button type="submit" class="btn btn-primary">Insert All Assessments</button>
+        </form>
+
+    
+
+    <div class="col-md-1 d-flex align-items-end">
+        <button type="Add" class="btn btn-success">
+            <i class="bi bi-plus-circle"></i> Send 
+        </button>
+</div>
+
+    <script>
+        function updateNAFlag(itemId) {
+            $.ajax({
+                url: '/Assessment/UpdateNAFlag',
+                type: 'POST',
+                data: { id: itemId },
+                success: function (response) {
+                    alert("NA Flag updated successfully!");
+                    location.reload(); // Refresh page to reflect changes
+                },
+                error: function () {
+                    alert("Error updating NA Flag.");
+                }
+            });
+        }
+    </script>

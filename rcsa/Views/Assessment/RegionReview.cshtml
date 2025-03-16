@@ -1,0 +1,308 @@
+﻿@model List<rcsa.Models.AssessmentAnswer>
+@{
+
+    Layout = "~/Views/Shared/_aLayout.cshtml";
+    string userRole = @ViewBag.BranchName; // Replace with dynamic user role if needed
+}
+<div class="container mt-4">
+    <!-- Page Title -->
+    <h2 class="text-success"> Assessment</h2>
+    <!-- Assessment Table -->
+   
+    <div class="table-responsive mt-3">
+
+        @if (!string.IsNullOrEmpty(ViewBag.AssessmentMessage))
+        {
+            <div class="alert alert-warning">
+                @ViewBag.AssessmentMessage
+            </div>
+        }
+        else
+        {
+            <form action="@Url.Action("SaveRegionAnswers", "Assessment")" method="post" onsubmit="console.log('Form submitted');">
+                @Html.AntiForgeryToken()
+
+                <h5>Service Center ID: @Model.FirstOrDefault()?.ServiceCenterId</h5>
+                <h5>Service Center: @ViewBag.BranchNameForServiceCenter</h5>
+                <h5>From Date: @Model.FirstOrDefault()?.fromdate.ToString("yyyy-MM-dd") To Date: @Model.FirstOrDefault()?.todate.ToString("yyyy-MM-dd")</h5>
+
+                <div class="table-responsive mt-3">
+                    <table id="exportTable" class="table table-striped">
+                        <thead class="table-light">
+                            <tr>
+                                <th>No.</th>
+                                <th>Question</th>
+                                <th>Marks</th>
+                                <th>Service Center Answer</th>
+                                <th>Branch Answer</th>
+                                <th>Region Review</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            @{
+                                int index = 0;
+                                int mainHeadingIndex = 1;
+                                double totalScore = 0;
+                                double brtotalScore = 0;
+                            }
+
+                            @foreach (var mainHeadingGroup in Model.GroupBy(q => q.headingTitel))
+                            {
+                                <!-- Main Heading -->
+                                <tr class="table-success">
+                                    <td colspan="6"><strong>@mainHeadingIndex. @mainHeadingGroup.Key</strong></td>
+                                </tr>
+
+                                int subHeadingIndex = 1;
+
+                                @foreach (var subHeadingGroup in mainHeadingGroup.GroupBy(q => q.subheadingTitel))
+                                {
+                                    <!-- Sub Heading -->
+                                    <tr class="table-info">
+                                        <td colspan="6"><strong>@mainHeadingIndex.@subHeadingIndex @subHeadingGroup.Key</strong></td>
+                                    </tr>
+
+                                    int questionIndex = 1;
+
+                                    @foreach (var question in subHeadingGroup)
+                                    {
+                                        totalScore = question.TotalScore;
+                                        brtotalScore = question.BrRTotalScore;
+
+                                        <tr data-service-center-id="@question.ServiceCenterId">
+                                            <td>@mainHeadingIndex.@subHeadingIndex.@questionIndex</td>
+                                            <td>
+                                                @question.AnswerText
+                                                <input type="hidden" name="[@index].QuestionId" value="@question.QuestionId" />
+                                                <input type="hidden" name="[@index].Marks" value="@question.Marks" />
+                                                <input type="hidden" name="[@index].ServiceCenterId" value="@question.ServiceCenterId" />
+                                                <input type="hidden" name="[@index].TotalScore" value="@question.TotalScore" />
+                                                <input type="hidden" name="[@index].BrRTotalScore" value="@question.BrRTotalScore" />
+                                            </td>
+                                            <td>@question.Marks</td>
+                                            <td>
+                                                <div class="col-md-2">
+                                                    @{
+                                                        string displayAnswer = question.ServiceCenterAnswer == "Yes" ? "Yes" :
+                                                        question.ServiceCenterAnswer == "NO" ? "No" :
+                                                        question.ServiceCenterAnswer == "NA" ? "N/A" : "";
+                                                        bool hideServiceCenterAnswer = question.ServiceCenterflag == 0;
+                                                    }
+                                                    <span class="answer-label @(question.ServiceCenterAnswer == "NO" || question.ServiceCenterAnswer == "NA" ? "clickable" : "")"
+                                                          data-comment="@question.Scomment"
+                                                          onclick="showComment(this)"
+                                                    @(hideServiceCenterAnswer ? "style=display:none;" : "")>
+                                                        @displayAnswer
+                                                    </span>
+                                                    <input type="hidden" name="[@index].ServiceCenterAnswer" value="@question.ServiceCenterAnswer" />
+                                                    <input type="hidden" name="[@index].Scomment" value="@question.Scomment" />
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="col-md-2">
+                                                    @{
+                                                        string displayAnswer2 = question.BranchAnswer == "Yes" ? "Yes" :
+                                                        question.BranchAnswer == "NO" ? "No" :
+                                                        question.BranchAnswer == "NA" ? "N/A" : "";
+                                                    }
+
+                                                    <span class="answer-label @(question.BranchAnswer == "NO" || question.BranchAnswer == "NA" ? "clickable" : "")"
+                                                          data-comment="@question.Bcomment"
+                                                          onclick="showComment(this)">
+                                                        @displayAnswer2
+                                                    </span>
+
+                                                    <input type="hidden" name="[@index].BranchAnswer" value="@question.BranchAnswer" />
+                                                    <input type="hidden" name="[@index].Bcomment" value="@question.Bcomment" />
+                                                </div>
+                                            </td>
+
+                                            <td>
+                                                <div class="d-flex align-items-center">
+                                                    <label class="me-3">
+                                                        <input type="radio" name="[@index].RegionAnswer" value="Yes" @(question.RegionAnswer == "Yes" ? "checked" : "") onclick="checkBranchAnswer(this)" /> ✔
+                                                    </label>
+                                                    <label class="me-3">
+                                                        <input type="radio" name="[@index].RegionAnswer" value="NO" class="negative-answer" @(question.RegionAnswer == "NO" ? "checked" : "") onclick="checkBranchAnswer(this)" /> ✖
+                                                    </label>
+                                                    <label class="me-3">
+                                                        <input type="radio" name="[@index].RegionAnswer" value="NA" class="notapplicable-answer" @(question.RegionAnswer == "NA" ? "checked" : "") onclick="checkBranchAnswer(this)" /> ⬜
+                                                    </label>
+
+                                                    <textarea name="[@index].Rcomment" class="form-control comment-field" rows="3" id="comment-@index">@question.Rcomment</textarea>
+                                                </div>
+                                            </td>
+                                        </tr>
+
+                                        index++;
+                                        questionIndex++;
+                                    }
+
+                                    subHeadingIndex++;
+                                }
+
+                                mainHeadingIndex++;
+                            }
+                        </tbody>
+
+                        <!-- Total Score Row at the End -->
+                        <tfoot>
+                            <tr class="table-warning">
+                                <td colspan="4" class="text-end"><strong>Service Center Total Score:</strong></td>
+                                <td><strong>@totalScore</strong></td>
+
+
+                            </tr>
+                            <tr class="table-warning">
+                                <td colspan="4" class="text-end"><strong>Branch Review Total Score:</strong></td>
+                                <td><strong>@brtotalScore</strong></td>
+
+
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+
+            }
+        </div>
+    </div>
+</div>
+    <style>
+        .answer-label {
+            font-weight: bold;
+            color: #333;
+            cursor: pointer;
+        }
+
+        .clickable {
+            color: red;
+            text-decoration: underline;
+        }
+    </style>
+    <script>
+        function checkBranchAnswer(radio) {
+            let selectedValue = radio.value;
+            let index = radio.name.match(/\d+/)[0]; // Extract the index from the name attribute
+            let commentBox = document.getElementById("comment-" + index);
+
+            if (selectedValue === "NO" || selectedValue === "NA") {
+                let existingComment = commentBox.value.trim(); // Get existing comment
+
+                let userComment = prompt("Please enter a comment for this answer:", existingComment); // Pre-fill with existing comment
+                if (userComment !== null) {
+                    commentBox.value = userComment; // Update the textarea with the new comment
+                }
+            }
+        }
+    function showComment(element) {
+        let answer = element.innerText.trim(); // Get the displayed answer (Yes, No, NA)
+        let comment = element.getAttribute("data-comment");
+
+        if ((answer === "No" || answer === "N/A") && comment) {
+            alert("Comment: " + comment);
+        }
+    }
+        $(document).ready(function () {
+            $("#searchForm").submit(function (event) {
+                event.preventDefault(); // Prevent form from reloading the page
+
+                var serviceCenterId = $("#ServiceCenterId").val(); // Get input value
+
+                $.ajax({
+                    url: "/Assessment/RegionReview",
+                    type: "GET",
+                    data: { ServiceCenterId: serviceCenterId },
+                    success: function (response) {
+                        $("#resultTable").html(response); // Load response into the div
+                    },
+                    error: function () {
+                        $("#resultTable").html("<p style='color: red;'>Error loading data.</p>");
+                    }
+                });
+            });
+        });
+        document.addEventListener("DOMContentLoaded", function () {
+            const formKey = "savedAssessmentAnswers"; // Key for local storage
+
+            // Function to save data to Local Storage
+            function saveToLocalStorage() {
+                let answers = {};
+                document.querySelectorAll('input[type="radio"]:checked').forEach(radio => {
+                    answers[radio.name] = {
+                        value: radio.value,
+                        className: radio.className
+                    };
+                });
+                document.querySelectorAll('input[type="text"]').forEach(input => {
+                    answers[input.name] = input.value;
+                });
+                localStorage.setItem(formKey, JSON.stringify(answers));
+            }
+
+            // Function to load data from Local Storage
+            function loadFromLocalStorage() {
+                let savedAnswers = JSON.parse(localStorage.getItem(formKey) || "{}");
+                document.querySelectorAll('input[type="radio"]').forEach(radio => {
+                    if (savedAnswers[radio.name] && savedAnswers[radio.name].value === radio.value) {
+                        radio.checked = true;
+                        // Show/hide comment field based on the value
+                        let parent = radio.closest('tr');
+                        let commentField = parent.querySelector('.comment-field');
+                    if (radio.value === "NO" || radio.value === "NA") {  // 0 = negative, 2 = not applicable
+                            commentField.style.display = 'block';
+                        } else {
+                            commentField.style.display = 'none';
+                        }
+                    }
+                });
+                document.querySelectorAll('input[type="text"]').forEach(input => {
+                    if (savedAnswers[input.name]) {
+                        input.value = savedAnswers[input.name];
+                    }
+                });
+            }
+
+            // Function to clear Local Storage when form is submitted
+            function clearLocalStorage() {
+                localStorage.removeItem(formKey);
+            }
+
+            // Attach event listener to all radio buttons
+            document.querySelectorAll('input[type="radio"]').forEach(radio => {
+                radio.addEventListener("change", saveToLocalStorage);
+            });
+
+            // Attach event listener to text input for comment
+            document.querySelectorAll('input[type="text"]').forEach(input => {
+                input.addEventListener("change", saveToLocalStorage);
+            });
+
+            // Attach event listener to form submission
+            document.querySelector("form").addEventListener("submit", function () {
+                clearLocalStorage();
+            });
+
+            // Load saved data from local storage when page loads
+            loadFromLocalStorage();
+
+            // Show comment field if negative or notapplicable is selected
+            document.querySelectorAll('input[type="radio"]').forEach(radio => {
+                radio.addEventListener('change', function () {
+                    let parent = this.closest('tr');
+                    let commentField = parent.querySelector('.comment-field');
+                    if (this.value === "NA" || this.value === "NA") {  // 0 = negative, 2 = not applicable
+                        commentField.style.display = 'block';
+                    } else {
+                        commentField.style.display = 'none';
+                        commentField.value = ''; // Clear comment if answer is changed
+                    }
+                });
+            });
+        });
+
+    </script>
+
+

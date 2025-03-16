@@ -1,0 +1,121 @@
+is_global = true
+build_property.TargetFramework = net8.0
+build_property.TargetFramework = net8.0
+build_property.TargetPlatformMinVersion = 
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = rcsa
+build_property.RootNamespace = rcsa
+build_property.ProjectDir = F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.RazorLangVersion = 8.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa
+build_property._RazorSourceGeneratorDebug = 
+build_property.EffectiveAnalysisLevelStyle = 8.0
+build_property.EnableCodeStyleSeverity = 
+
+[F:/Project Files/dotnet/update 2/rcsa/rcsa/rcsa/Views/Assessment/AdminReview.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXNzZXNzbWVudFxBZG1pblJldmlldy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Project Files/dotnet/update 2/rcsa/rcsa/rcsa/Views/Assessment/AssessmentEdit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXNzZXNzbWVudFxBc3Nlc3NtZW50RWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Project Files/dotnet/update 2/rcsa/rcsa/rcsa/Views/Assessment/BranchOwnreview.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXNzZXNzbWVudFxCcmFuY2hPd25yZXZpZXcuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Project Files/dotnet/update 2/rcsa/rcsa/rcsa/Views/Assessment/BranchReview.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXNzZXNzbWVudFxCcmFuY2hSZXZpZXcuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Project Files/dotnet/update 2/rcsa/rcsa/rcsa/Views/Assessment/GetRroAssessment.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXNzZXNzbWVudFxHZXRScm9Bc3Nlc3NtZW50LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Project Files/dotnet/update 2/rcsa/rcsa/rcsa/Views/Assessment/HistoryReport.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXNzZXNzbWVudFxIaXN0b3J5UmVwb3J0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Project Files/dotnet/update 2/rcsa/rcsa/rcsa/Views/Assessment/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXNzZXNzbWVudFxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Project Files/dotnet/update 2/rcsa/rcsa/rcsa/Views/Assessment/OldAdminOwnReport.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXNzZXNzbWVudFxPbGRBZG1pbk93blJlcG9ydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Project Files/dotnet/update 2/rcsa/rcsa/rcsa/Views/Assessment/OldBranchOwnreview.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXNzZXNzbWVudFxPbGRCcmFuY2hPd25yZXZpZXcuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Project Files/dotnet/update 2/rcsa/rcsa/rcsa/Views/Assessment/OldOwnreport.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXNzZXNzbWVudFxPbGRPd25yZXBvcnQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Project Files/dotnet/update 2/rcsa/rcsa/rcsa/Views/Assessment/RegionOwnReport.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXNzZXNzbWVudFxSZWdpb25Pd25SZXBvcnQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Project Files/dotnet/update 2/rcsa/rcsa/rcsa/Views/Assessment/RegionOwnReportRRoview.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXNzZXNzbWVudFxSZWdpb25Pd25SZXBvcnRSUm92aWV3LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Project Files/dotnet/update 2/rcsa/rcsa/rcsa/Views/Assessment/RegionReview.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXNzZXNzbWVudFxSZWdpb25SZXZpZXcuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Project Files/dotnet/update 2/rcsa/rcsa/rcsa/Views/Assessment/RroAssessment.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXNzZXNzbWVudFxScm9Bc3Nlc3NtZW50LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Project Files/dotnet/update 2/rcsa/rcsa/rcsa/Views/Assessment/SericeCenterAssesment.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXNzZXNzbWVudFxTZXJpY2VDZW50ZXJBc3Nlc21lbnQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Project Files/dotnet/update 2/rcsa/rcsa/rcsa/Views/Assessment/ViewRroAssessment.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXNzZXNzbWVudFxWaWV3UnJvQXNzZXNzbWVudC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Project Files/dotnet/update 2/rcsa/rcsa/rcsa/Views/Home/AdminDashboard.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxBZG1pbkRhc2hib2FyZC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Project Files/dotnet/update 2/rcsa/rcsa/rcsa/Views/Home/AssessmentManagement.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxBc3Nlc3NtZW50TWFuYWdlbWVudC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Project Files/dotnet/update 2/rcsa/rcsa/rcsa/Views/Home/HeadingManagement.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxIZWFkaW5nTWFuYWdlbWVudC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Project Files/dotnet/update 2/rcsa/rcsa/rcsa/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Project Files/dotnet/update 2/rcsa/rcsa/rcsa/Views/Home/RroDashboard.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxScm9EYXNoYm9hcmQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Project Files/dotnet/update 2/rcsa/rcsa/rcsa/Views/Shared/_aLayout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9hTGF5b3V0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Project Files/dotnet/update 2/rcsa/rcsa/rcsa/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 

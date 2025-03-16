@@ -1,0 +1,144 @@
+﻿@model List<rcsa.Models.User>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container mt-4">
+    @if (TempData["SuccessMessage"] != null)
+    {
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            @TempData["SuccessMessage"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+    @using (Html.BeginForm("GetRroAssessment", "RroAssessment", FormMethod.Get, new { id = "assessmentForm" }))
+    {
+        <div class="form-group">
+            <label for="ServiceCenterId">Select Service Center:</label>
+            @Html.DropDownList("ServiceCenterId", ViewBag.ServiceCenters as SelectList, "Select a Service Center", new { @class = "form-control", required = "required" })
+        </div>
+
+        <div class="form-group">
+            <label for="FromDate">Select From Date:</label>
+            @Html.DropDownList("FromDate", ViewBag.fromdatesubmited as SelectList, "Select a Date", new { @class = "form-control", required = "required" })
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+    }
+    @if (TempData["SuccessMessage"] != null)
+    {
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            @TempData["SuccessMessage"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+    @using (Html.BeginForm("RegionOwnReportRRoview", "RroAssessment", FormMethod.Get, new { id = "assessmentFormNomal" }))
+    {
+        <div class="form-group">
+            <label for="ServiceCenterId">Select Service Center:</label>
+            @Html.DropDownList("ServiceCenterId", ViewBag.ServiceCenters as SelectList, "Select a Service Center", new { @class = "form-control", required = "required" })
+        </div>
+
+        <div class="form-group">
+            <label for="FromDate">Select From Date:</label>
+            @Html.DropDownList("FromDate", ViewBag.fromdatesubmitedNorml as SelectList, "Select a Date", new { @class = "form-control", required = "required" })
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+    }
+
+    <div class="table-responsive mt-3">
+        <div class="container">
+            @foreach (var date in ViewBag.FromDates as List<DateTime>)
+            {
+                // Get the list of hidden ServiceCenterIds for the current date
+                var hiddenServiceCenterIds = (ViewBag.HiddenServiceCenterIdsByDate as Dictionary<DateTime, List<int>>)[date];
+
+                // Check if all ServiceCenterIds are hidden for this date
+                var allButtonsHidden = true;
+                foreach (var item in ViewBag.ServiceCenters as SelectList)
+                {
+                    if (!hiddenServiceCenterIds.Contains(int.Parse(item.Value)))
+                    {
+                        allButtonsHidden = false; // At least one button is visible
+                        break;
+                    }
+                }
+
+                // If all buttons are hidden, skip rendering this date section
+                if (allButtonsHidden)
+                {
+                    continue;
+                }
+
+                <h4 class="text-primary">@date.ToString("yyyy-MM-dd")</h4>
+                <div class="row">
+                    @foreach (var item in ViewBag.ServiceCenters as SelectList)
+                    {
+                        // Check if the ServiceCenterId should be hidden for this date
+                        if (hiddenServiceCenterIds.Contains(int.Parse(item.Value)))
+                        {
+                            continue; // Skip this iteration, effectively hiding the button
+                        }
+
+                        <div class="col-md-3 mb-2">
+                            <button type="button" class="btn btn-outline-primary w-100 service-center-btn"
+                                    data-value="@item.Value" data-quarter="1" data-date="@date.ToString("yyyy-MM-dd")">
+                                @item.Text
+                            </button>
+                        </div>
+                    }
+                </div>
+                <hr />
+            }
+        </div>
+    </div>
+</div>
+@* 
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> *@
+
+
+    <input type="hidden" id="ServiceCenterId" name="ServiceCenterId" required />
+    <input type="hidden" id="Perd" name="Perd" required />
+
+
+    <script>
+
+    document.getElementById("assessmentForm").addEventListener("submit", function (event) {
+        event.preventDefault(); 
+
+   
+        var serviceCenterId = document.getElementById("ServiceCenterId").value;
+        var fromDate = document.getElementById("FromDate").value;
+
+        window.location.href = "/Assessment/GetRroAssessment?serviceCenterId=" + serviceCenterId + "&fromdate=" + fromDate;
+    });
+
+    document.getElementById("assessmentFormNomal").addEventListener("submit", function (event) {
+        event.preventDefault();
+
+
+        var serviceCenterId = document.getElementById("ServiceCenterId").value;
+        var fromDate = document.getElementById("FromDate").value;
+
+        // Redirect to the desired URL
+        window.location.href = "/Assessment/RegionOwnReportRRoview?serviceCenterId=" + serviceCenterId + "&fromdate=" + fromDate;
+    });
+
+
+    document.querySelectorAll(".service-center-btn").forEach(btn => {
+        btn.addEventListener("click", function () {
+            let selectedServiceCenterId = this.getAttribute("data-value");
+            let selectedFromDate = this.getAttribute("data-date"); // Get FromDate
+
+            document.getElementById("ServiceCenterId").value = selectedServiceCenterId;
+
+            console.log("Selected Service Center ID:", selectedServiceCenterId);
+            console.log("Selected From Date:", selectedFromDate);
+
+            window.location.href = `/Assessment/RroAssessment?ServiceCenterId=${selectedServiceCenterId}&FromDate=${selectedFromDate}`;
+        });
+    });
+
+    </script>
+

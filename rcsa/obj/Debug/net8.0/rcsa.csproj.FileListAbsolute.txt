@@ -1,0 +1,748 @@
+C:\Users\user\source\repos\rcsa\rcsa\bin\Debug\net8.0\appsettings.Development.json
+C:\Users\user\source\repos\rcsa\rcsa\bin\Debug\net8.0\appsettings.json
+C:\Users\user\source\repos\rcsa\rcsa\bin\Debug\net8.0\rcsa.staticwebassets.runtime.json
+C:\Users\user\source\repos\rcsa\rcsa\bin\Debug\net8.0\rcsa.exe
+C:\Users\user\source\repos\rcsa\rcsa\bin\Debug\net8.0\rcsa.deps.json
+C:\Users\user\source\repos\rcsa\rcsa\bin\Debug\net8.0\rcsa.runtimeconfig.json
+C:\Users\user\source\repos\rcsa\rcsa\bin\Debug\net8.0\rcsa.dll
+C:\Users\user\source\repos\rcsa\rcsa\bin\Debug\net8.0\rcsa.pdb
+C:\Users\user\source\repos\rcsa\rcsa\bin\Debug\net8.0\BouncyCastle.Cryptography.dll
+C:\Users\user\source\repos\rcsa\rcsa\bin\Debug\net8.0\Google.Protobuf.dll
+C:\Users\user\source\repos\rcsa\rcsa\bin\Debug\net8.0\Humanizer.dll
+C:\Users\user\source\repos\rcsa\rcsa\bin\Debug\net8.0\K4os.Compression.LZ4.dll
+C:\Users\user\source\repos\rcsa\rcsa\bin\Debug\net8.0\K4os.Compression.LZ4.Streams.dll
+C:\Users\user\source\repos\rcsa\rcsa\bin\Debug\net8.0\K4os.Hash.xxHash.dll
+C:\Users\user\source\repos\rcsa\rcsa\bin\Debug\net8.0\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\user\source\repos\rcsa\rcsa\bin\Debug\net8.0\Microsoft.CodeAnalysis.dll
+C:\Users\user\source\repos\rcsa\rcsa\bin\Debug\net8.0\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\user\source\repos\rcsa\rcsa\bin\Debug\net8.0\Microsoft.CodeAnalysis.CSharp.Workspaces.dll
+C:\Users\user\source\repos\rcsa\rcsa\bin\Debug\net8.0\Microsoft.CodeAnalysis.Workspaces.dll
+C:\Users\user\source\repos\rcsa\rcsa\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.dll
+C:\Users\user\source\repos\rcsa\rcsa\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\user\source\repos\rcsa\rcsa\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Design.dll
+C:\Users\user\source\repos\rcsa\rcsa\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Users\user\source\repos\rcsa\rcsa\bin\Debug\net8.0\Microsoft.Extensions.DependencyModel.dll
+C:\Users\user\source\repos\rcsa\rcsa\bin\Debug\net8.0\Microsoft.Win32.SystemEvents.dll
+C:\Users\user\source\repos\rcsa\rcsa\bin\Debug\net8.0\Mono.TextTemplating.dll
+C:\Users\user\source\repos\rcsa\rcsa\bin\Debug\net8.0\MySql.Data.dll
+C:\Users\user\source\repos\rcsa\rcsa\bin\Debug\net8.0\MySql.EntityFrameworkCore.dll
+C:\Users\user\source\repos\rcsa\rcsa\bin\Debug\net8.0\System.CodeDom.dll
+C:\Users\user\source\repos\rcsa\rcsa\bin\Debug\net8.0\System.Composition.AttributedModel.dll
+C:\Users\user\source\repos\rcsa\rcsa\bin\Debug\net8.0\System.Composition.Convention.dll
+C:\Users\user\source\repos\rcsa\rcsa\bin\Debug\net8.0\System.Composition.Hosting.dll
+C:\Users\user\source\repos\rcsa\rcsa\bin\Debug\net8.0\System.Composition.Runtime.dll
+C:\Users\user\source\repos\rcsa\rcsa\bin\Debug\net8.0\System.Composition.TypedParts.dll
+C:\Users\user\source\repos\rcsa\rcsa\bin\Debug\net8.0\System.Configuration.ConfigurationManager.dll
+C:\Users\user\source\repos\rcsa\rcsa\bin\Debug\net8.0\System.Drawing.Common.dll
+C:\Users\user\source\repos\rcsa\rcsa\bin\Debug\net8.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\user\source\repos\rcsa\rcsa\bin\Debug\net8.0\System.Security.Permissions.dll
+C:\Users\user\source\repos\rcsa\rcsa\bin\Debug\net8.0\System.Windows.Extensions.dll
+C:\Users\user\source\repos\rcsa\rcsa\bin\Debug\net8.0\ZstdSharp.dll
+C:\Users\user\source\repos\rcsa\rcsa\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.resources.dll
+C:\Users\user\source\repos\rcsa\rcsa\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.resources.dll
+C:\Users\user\source\repos\rcsa\rcsa\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.resources.dll
+C:\Users\user\source\repos\rcsa\rcsa\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.resources.dll
+C:\Users\user\source\repos\rcsa\rcsa\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.resources.dll
+C:\Users\user\source\repos\rcsa\rcsa\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.resources.dll
+C:\Users\user\source\repos\rcsa\rcsa\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.resources.dll
+C:\Users\user\source\repos\rcsa\rcsa\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.resources.dll
+C:\Users\user\source\repos\rcsa\rcsa\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.resources.dll
+C:\Users\user\source\repos\rcsa\rcsa\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.resources.dll
+C:\Users\user\source\repos\rcsa\rcsa\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.resources.dll
+C:\Users\user\source\repos\rcsa\rcsa\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.resources.dll
+C:\Users\user\source\repos\rcsa\rcsa\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.resources.dll
+C:\Users\user\source\repos\rcsa\rcsa\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\user\source\repos\rcsa\rcsa\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\user\source\repos\rcsa\rcsa\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\user\source\repos\rcsa\rcsa\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\user\source\repos\rcsa\rcsa\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\user\source\repos\rcsa\rcsa\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\user\source\repos\rcsa\rcsa\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\user\source\repos\rcsa\rcsa\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\user\source\repos\rcsa\rcsa\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\user\source\repos\rcsa\rcsa\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\user\source\repos\rcsa\rcsa\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\user\source\repos\rcsa\rcsa\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\user\source\repos\rcsa\rcsa\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\user\source\repos\rcsa\rcsa\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\user\source\repos\rcsa\rcsa\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\user\source\repos\rcsa\rcsa\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\user\source\repos\rcsa\rcsa\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\user\source\repos\rcsa\rcsa\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\user\source\repos\rcsa\rcsa\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\user\source\repos\rcsa\rcsa\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\user\source\repos\rcsa\rcsa\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\user\source\repos\rcsa\rcsa\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\user\source\repos\rcsa\rcsa\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\user\source\repos\rcsa\rcsa\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\user\source\repos\rcsa\rcsa\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\user\source\repos\rcsa\rcsa\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\user\source\repos\rcsa\rcsa\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\user\source\repos\rcsa\rcsa\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\user\source\repos\rcsa\rcsa\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\user\source\repos\rcsa\rcsa\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\user\source\repos\rcsa\rcsa\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\user\source\repos\rcsa\rcsa\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\user\source\repos\rcsa\rcsa\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\user\source\repos\rcsa\rcsa\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\user\source\repos\rcsa\rcsa\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\user\source\repos\rcsa\rcsa\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\user\source\repos\rcsa\rcsa\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\user\source\repos\rcsa\rcsa\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\user\source\repos\rcsa\rcsa\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\user\source\repos\rcsa\rcsa\bin\Debug\net8.0\runtimes\win\lib\netcoreapp3.0\Microsoft.Win32.SystemEvents.dll
+C:\Users\user\source\repos\rcsa\rcsa\bin\Debug\net8.0\runtimes\win-x64\native\comerr64.dll
+C:\Users\user\source\repos\rcsa\rcsa\bin\Debug\net8.0\runtimes\win-x64\native\gssapi64.dll
+C:\Users\user\source\repos\rcsa\rcsa\bin\Debug\net8.0\runtimes\win-x64\native\k5sprt64.dll
+C:\Users\user\source\repos\rcsa\rcsa\bin\Debug\net8.0\runtimes\win-x64\native\krb5_64.dll
+C:\Users\user\source\repos\rcsa\rcsa\bin\Debug\net8.0\runtimes\win-x64\native\krbcc64.dll
+C:\Users\user\source\repos\rcsa\rcsa\bin\Debug\net8.0\runtimes\unix\lib\netcoreapp3.0\System.Drawing.Common.dll
+C:\Users\user\source\repos\rcsa\rcsa\bin\Debug\net8.0\runtimes\win\lib\netcoreapp3.0\System.Drawing.Common.dll
+C:\Users\user\source\repos\rcsa\rcsa\bin\Debug\net8.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\user\source\repos\rcsa\rcsa\bin\Debug\net8.0\runtimes\win\lib\netcoreapp3.0\System.Windows.Extensions.dll
+C:\Users\user\source\repos\rcsa\rcsa\obj\Debug\net8.0\rcsa.csproj.AssemblyReference.cache
+C:\Users\user\source\repos\rcsa\rcsa\obj\Debug\net8.0\rcsa.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\user\source\repos\rcsa\rcsa\obj\Debug\net8.0\rcsa.AssemblyInfoInputs.cache
+C:\Users\user\source\repos\rcsa\rcsa\obj\Debug\net8.0\rcsa.AssemblyInfo.cs
+C:\Users\user\source\repos\rcsa\rcsa\obj\Debug\net8.0\rcsa.csproj.CoreCompileInputs.cache
+C:\Users\user\source\repos\rcsa\rcsa\obj\Debug\net8.0\rcsa.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\user\source\repos\rcsa\rcsa\obj\Debug\net8.0\rcsa.RazorAssemblyInfo.cache
+C:\Users\user\source\repos\rcsa\rcsa\obj\Debug\net8.0\rcsa.RazorAssemblyInfo.cs
+C:\Users\user\source\repos\rcsa\rcsa\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\user\source\repos\rcsa\rcsa\obj\Debug\net8.0\staticwebassets.development.json
+C:\Users\user\source\repos\rcsa\rcsa\obj\Debug\net8.0\staticwebassets\msbuild.rcsa.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\user\source\repos\rcsa\rcsa\obj\Debug\net8.0\staticwebassets\msbuild.build.rcsa.props
+C:\Users\user\source\repos\rcsa\rcsa\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.rcsa.props
+C:\Users\user\source\repos\rcsa\rcsa\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.rcsa.props
+C:\Users\user\source\repos\rcsa\rcsa\obj\Debug\net8.0\staticwebassets.pack.json
+C:\Users\user\source\repos\rcsa\rcsa\obj\Debug\net8.0\scopedcss\bundle\rcsa.styles.css
+C:\Users\user\source\repos\rcsa\rcsa\obj\Debug\net8.0\rcsa.csproj.Up2Date
+C:\Users\user\source\repos\rcsa\rcsa\obj\Debug\net8.0\rcsa.dll
+C:\Users\user\source\repos\rcsa\rcsa\obj\Debug\net8.0\refint\rcsa.dll
+C:\Users\user\source\repos\rcsa\rcsa\obj\Debug\net8.0\rcsa.pdb
+C:\Users\user\source\repos\rcsa\rcsa\obj\Debug\net8.0\rcsa.genruntimeconfig.cache
+C:\Users\user\source\repos\rcsa\rcsa\obj\Debug\net8.0\ref\rcsa.dll
+D:\Dev\Rcsa\rcsa\rcsa\bin\Debug\net8.0\appsettings.Development.json
+D:\Dev\Rcsa\rcsa\rcsa\bin\Debug\net8.0\appsettings.json
+D:\Dev\Rcsa\rcsa\rcsa\bin\Debug\net8.0\rcsa.staticwebassets.runtime.json
+D:\Dev\Rcsa\rcsa\rcsa\bin\Debug\net8.0\rcsa.exe
+D:\Dev\Rcsa\rcsa\rcsa\bin\Debug\net8.0\rcsa.deps.json
+D:\Dev\Rcsa\rcsa\rcsa\bin\Debug\net8.0\rcsa.runtimeconfig.json
+D:\Dev\Rcsa\rcsa\rcsa\bin\Debug\net8.0\rcsa.dll
+D:\Dev\Rcsa\rcsa\rcsa\bin\Debug\net8.0\rcsa.pdb
+D:\Dev\Rcsa\rcsa\rcsa\bin\Debug\net8.0\BouncyCastle.Cryptography.dll
+D:\Dev\Rcsa\rcsa\rcsa\bin\Debug\net8.0\Google.Protobuf.dll
+D:\Dev\Rcsa\rcsa\rcsa\bin\Debug\net8.0\Humanizer.dll
+D:\Dev\Rcsa\rcsa\rcsa\bin\Debug\net8.0\K4os.Compression.LZ4.dll
+D:\Dev\Rcsa\rcsa\rcsa\bin\Debug\net8.0\K4os.Compression.LZ4.Streams.dll
+D:\Dev\Rcsa\rcsa\rcsa\bin\Debug\net8.0\K4os.Hash.xxHash.dll
+D:\Dev\Rcsa\rcsa\rcsa\bin\Debug\net8.0\Microsoft.Bcl.AsyncInterfaces.dll
+D:\Dev\Rcsa\rcsa\rcsa\bin\Debug\net8.0\Microsoft.CodeAnalysis.dll
+D:\Dev\Rcsa\rcsa\rcsa\bin\Debug\net8.0\Microsoft.CodeAnalysis.CSharp.dll
+D:\Dev\Rcsa\rcsa\rcsa\bin\Debug\net8.0\Microsoft.CodeAnalysis.CSharp.Workspaces.dll
+D:\Dev\Rcsa\rcsa\rcsa\bin\Debug\net8.0\Microsoft.CodeAnalysis.Workspaces.dll
+D:\Dev\Rcsa\rcsa\rcsa\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.dll
+D:\Dev\Rcsa\rcsa\rcsa\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+D:\Dev\Rcsa\rcsa\rcsa\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Design.dll
+D:\Dev\Rcsa\rcsa\rcsa\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Relational.dll
+D:\Dev\Rcsa\rcsa\rcsa\bin\Debug\net8.0\Microsoft.Extensions.DependencyModel.dll
+D:\Dev\Rcsa\rcsa\rcsa\bin\Debug\net8.0\Microsoft.Win32.SystemEvents.dll
+D:\Dev\Rcsa\rcsa\rcsa\bin\Debug\net8.0\Mono.TextTemplating.dll
+D:\Dev\Rcsa\rcsa\rcsa\bin\Debug\net8.0\MySql.Data.dll
+D:\Dev\Rcsa\rcsa\rcsa\bin\Debug\net8.0\MySql.EntityFrameworkCore.dll
+D:\Dev\Rcsa\rcsa\rcsa\bin\Debug\net8.0\System.CodeDom.dll
+D:\Dev\Rcsa\rcsa\rcsa\bin\Debug\net8.0\System.Composition.AttributedModel.dll
+D:\Dev\Rcsa\rcsa\rcsa\bin\Debug\net8.0\System.Composition.Convention.dll
+D:\Dev\Rcsa\rcsa\rcsa\bin\Debug\net8.0\System.Composition.Hosting.dll
+D:\Dev\Rcsa\rcsa\rcsa\bin\Debug\net8.0\System.Composition.Runtime.dll
+D:\Dev\Rcsa\rcsa\rcsa\bin\Debug\net8.0\System.Composition.TypedParts.dll
+D:\Dev\Rcsa\rcsa\rcsa\bin\Debug\net8.0\System.Configuration.ConfigurationManager.dll
+D:\Dev\Rcsa\rcsa\rcsa\bin\Debug\net8.0\System.Drawing.Common.dll
+D:\Dev\Rcsa\rcsa\rcsa\bin\Debug\net8.0\System.Security.Cryptography.ProtectedData.dll
+D:\Dev\Rcsa\rcsa\rcsa\bin\Debug\net8.0\System.Security.Permissions.dll
+D:\Dev\Rcsa\rcsa\rcsa\bin\Debug\net8.0\System.Windows.Extensions.dll
+D:\Dev\Rcsa\rcsa\rcsa\bin\Debug\net8.0\ZstdSharp.dll
+D:\Dev\Rcsa\rcsa\rcsa\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.resources.dll
+D:\Dev\Rcsa\rcsa\rcsa\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.resources.dll
+D:\Dev\Rcsa\rcsa\rcsa\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.resources.dll
+D:\Dev\Rcsa\rcsa\rcsa\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.resources.dll
+D:\Dev\Rcsa\rcsa\rcsa\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.resources.dll
+D:\Dev\Rcsa\rcsa\rcsa\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.resources.dll
+D:\Dev\Rcsa\rcsa\rcsa\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.resources.dll
+D:\Dev\Rcsa\rcsa\rcsa\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.resources.dll
+D:\Dev\Rcsa\rcsa\rcsa\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.resources.dll
+D:\Dev\Rcsa\rcsa\rcsa\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.resources.dll
+D:\Dev\Rcsa\rcsa\rcsa\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.resources.dll
+D:\Dev\Rcsa\rcsa\rcsa\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.resources.dll
+D:\Dev\Rcsa\rcsa\rcsa\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.resources.dll
+D:\Dev\Rcsa\rcsa\rcsa\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Dev\Rcsa\rcsa\rcsa\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Dev\Rcsa\rcsa\rcsa\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Dev\Rcsa\rcsa\rcsa\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Dev\Rcsa\rcsa\rcsa\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Dev\Rcsa\rcsa\rcsa\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Dev\Rcsa\rcsa\rcsa\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Dev\Rcsa\rcsa\rcsa\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Dev\Rcsa\rcsa\rcsa\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Dev\Rcsa\rcsa\rcsa\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Dev\Rcsa\rcsa\rcsa\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Dev\Rcsa\rcsa\rcsa\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Dev\Rcsa\rcsa\rcsa\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Dev\Rcsa\rcsa\rcsa\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Dev\Rcsa\rcsa\rcsa\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Dev\Rcsa\rcsa\rcsa\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Dev\Rcsa\rcsa\rcsa\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Dev\Rcsa\rcsa\rcsa\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Dev\Rcsa\rcsa\rcsa\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Dev\Rcsa\rcsa\rcsa\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Dev\Rcsa\rcsa\rcsa\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Dev\Rcsa\rcsa\rcsa\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Dev\Rcsa\rcsa\rcsa\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Dev\Rcsa\rcsa\rcsa\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Dev\Rcsa\rcsa\rcsa\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Dev\Rcsa\rcsa\rcsa\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Dev\Rcsa\rcsa\rcsa\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Dev\Rcsa\rcsa\rcsa\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Dev\Rcsa\rcsa\rcsa\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Dev\Rcsa\rcsa\rcsa\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Dev\Rcsa\rcsa\rcsa\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Dev\Rcsa\rcsa\rcsa\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Dev\Rcsa\rcsa\rcsa\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Dev\Rcsa\rcsa\rcsa\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Dev\Rcsa\rcsa\rcsa\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Dev\Rcsa\rcsa\rcsa\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Dev\Rcsa\rcsa\rcsa\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Dev\Rcsa\rcsa\rcsa\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Dev\Rcsa\rcsa\rcsa\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Dev\Rcsa\rcsa\rcsa\bin\Debug\net8.0\runtimes\win\lib\netcoreapp3.0\Microsoft.Win32.SystemEvents.dll
+D:\Dev\Rcsa\rcsa\rcsa\bin\Debug\net8.0\runtimes\win-x64\native\comerr64.dll
+D:\Dev\Rcsa\rcsa\rcsa\bin\Debug\net8.0\runtimes\win-x64\native\gssapi64.dll
+D:\Dev\Rcsa\rcsa\rcsa\bin\Debug\net8.0\runtimes\win-x64\native\k5sprt64.dll
+D:\Dev\Rcsa\rcsa\rcsa\bin\Debug\net8.0\runtimes\win-x64\native\krb5_64.dll
+D:\Dev\Rcsa\rcsa\rcsa\bin\Debug\net8.0\runtimes\win-x64\native\krbcc64.dll
+D:\Dev\Rcsa\rcsa\rcsa\bin\Debug\net8.0\runtimes\unix\lib\netcoreapp3.0\System.Drawing.Common.dll
+D:\Dev\Rcsa\rcsa\rcsa\bin\Debug\net8.0\runtimes\win\lib\netcoreapp3.0\System.Drawing.Common.dll
+D:\Dev\Rcsa\rcsa\rcsa\bin\Debug\net8.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+D:\Dev\Rcsa\rcsa\rcsa\bin\Debug\net8.0\runtimes\win\lib\netcoreapp3.0\System.Windows.Extensions.dll
+D:\Dev\Rcsa\rcsa\rcsa\obj\Debug\net8.0\rcsa.csproj.AssemblyReference.cache
+D:\Dev\Rcsa\rcsa\rcsa\obj\Debug\net8.0\rcsa.GeneratedMSBuildEditorConfig.editorconfig
+D:\Dev\Rcsa\rcsa\rcsa\obj\Debug\net8.0\rcsa.AssemblyInfoInputs.cache
+D:\Dev\Rcsa\rcsa\rcsa\obj\Debug\net8.0\rcsa.AssemblyInfo.cs
+D:\Dev\Rcsa\rcsa\rcsa\obj\Debug\net8.0\rcsa.csproj.CoreCompileInputs.cache
+D:\Dev\Rcsa\rcsa\rcsa\obj\Debug\net8.0\rcsa.MvcApplicationPartsAssemblyInfo.cache
+D:\Dev\Rcsa\rcsa\rcsa\obj\Debug\net8.0\rcsa.RazorAssemblyInfo.cache
+D:\Dev\Rcsa\rcsa\rcsa\obj\Debug\net8.0\rcsa.RazorAssemblyInfo.cs
+D:\Dev\Rcsa\rcsa\rcsa\obj\Debug\net8.0\staticwebassets.build.json
+D:\Dev\Rcsa\rcsa\rcsa\obj\Debug\net8.0\staticwebassets.development.json
+D:\Dev\Rcsa\rcsa\rcsa\obj\Debug\net8.0\staticwebassets\msbuild.rcsa.Microsoft.AspNetCore.StaticWebAssets.props
+D:\Dev\Rcsa\rcsa\rcsa\obj\Debug\net8.0\staticwebassets\msbuild.build.rcsa.props
+D:\Dev\Rcsa\rcsa\rcsa\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.rcsa.props
+D:\Dev\Rcsa\rcsa\rcsa\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.rcsa.props
+D:\Dev\Rcsa\rcsa\rcsa\obj\Debug\net8.0\staticwebassets.pack.json
+D:\Dev\Rcsa\rcsa\rcsa\obj\Debug\net8.0\scopedcss\bundle\rcsa.styles.css
+D:\Dev\Rcsa\rcsa\rcsa\obj\Debug\net8.0\rcsa.csproj.Up2Date
+D:\Dev\Rcsa\rcsa\rcsa\obj\Debug\net8.0\rcsa.dll
+D:\Dev\Rcsa\rcsa\rcsa\obj\Debug\net8.0\refint\rcsa.dll
+D:\Dev\Rcsa\rcsa\rcsa\obj\Debug\net8.0\rcsa.pdb
+D:\Dev\Rcsa\rcsa\rcsa\obj\Debug\net8.0\rcsa.genruntimeconfig.cache
+D:\Dev\Rcsa\rcsa\rcsa\obj\Debug\net8.0\ref\rcsa.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\appsettings.Development.json
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\appsettings.json
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\rcsa.staticwebassets.runtime.json
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\rcsa.exe
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\rcsa.deps.json
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\rcsa.runtimeconfig.json
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\rcsa.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\rcsa.pdb
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\BouncyCastle.Cryptography.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\Google.Protobuf.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\Humanizer.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\K4os.Compression.LZ4.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\K4os.Compression.LZ4.Streams.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\K4os.Hash.xxHash.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\Microsoft.AspNetCore.Razor.Language.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\Microsoft.Build.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\Microsoft.Build.Framework.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\Microsoft.CodeAnalysis.AnalyzerUtilities.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\Microsoft.CodeAnalysis.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\Microsoft.CodeAnalysis.CSharp.Features.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\Microsoft.CodeAnalysis.CSharp.Workspaces.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\Microsoft.CodeAnalysis.Elfie.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\Microsoft.CodeAnalysis.Features.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\Microsoft.CodeAnalysis.Razor.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\Microsoft.CodeAnalysis.Workspaces.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\Microsoft.DiaSymReader.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\Microsoft.DotNet.Scaffolding.Shared.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Design.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\Microsoft.Extensions.DependencyModel.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\Microsoft.NET.StringTools.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\Microsoft.VisualStudio.Web.CodeGeneration.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\Microsoft.VisualStudio.Web.CodeGeneration.Core.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\dotnet-aspnet-codegenerator-design.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\Microsoft.VisualStudio.Web.CodeGeneration.EntityFrameworkCore.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\Microsoft.VisualStudio.Web.CodeGeneration.Templating.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\Microsoft.VisualStudio.Web.CodeGeneration.Utils.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\Microsoft.VisualStudio.Web.CodeGenerators.Mvc.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\Microsoft.Win32.SystemEvents.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\Mono.TextTemplating.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\MySql.Data.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\MySql.EntityFrameworkCore.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\Newtonsoft.Json.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\NuGet.Common.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\NuGet.Configuration.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\NuGet.DependencyResolver.Core.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\NuGet.Frameworks.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\NuGet.LibraryModel.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\NuGet.Packaging.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\NuGet.ProjectModel.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\NuGet.Protocol.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\NuGet.Versioning.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\System.CodeDom.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\System.Composition.AttributedModel.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\System.Composition.Convention.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\System.Composition.Hosting.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\System.Composition.Runtime.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\System.Composition.TypedParts.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\System.Configuration.ConfigurationManager.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\System.Drawing.Common.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\System.Reflection.MetadataLoadContext.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\System.Security.Permissions.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\System.Windows.Extensions.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\ZstdSharp.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\af\Humanizer.resources.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\ar\Humanizer.resources.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\az\Humanizer.resources.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\bg\Humanizer.resources.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\bn-BD\Humanizer.resources.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\cs\Humanizer.resources.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\da\Humanizer.resources.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\de\Humanizer.resources.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\el\Humanizer.resources.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\es\Humanizer.resources.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\fa\Humanizer.resources.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\fi-FI\Humanizer.resources.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\fr\Humanizer.resources.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\fr-BE\Humanizer.resources.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\he\Humanizer.resources.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\hr\Humanizer.resources.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\hu\Humanizer.resources.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\hy\Humanizer.resources.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\id\Humanizer.resources.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\is\Humanizer.resources.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\it\Humanizer.resources.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\ja\Humanizer.resources.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\ko-KR\Humanizer.resources.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\ku\Humanizer.resources.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\lv\Humanizer.resources.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\ms-MY\Humanizer.resources.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\mt\Humanizer.resources.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\nb\Humanizer.resources.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\nb-NO\Humanizer.resources.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\nl\Humanizer.resources.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\pl\Humanizer.resources.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\pt\Humanizer.resources.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\ro\Humanizer.resources.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\ru\Humanizer.resources.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\sk\Humanizer.resources.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\sl\Humanizer.resources.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\sr\Humanizer.resources.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\sr-Latn\Humanizer.resources.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\sv\Humanizer.resources.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\th-TH\Humanizer.resources.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\tr\Humanizer.resources.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\uk\Humanizer.resources.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\uz-Cyrl-UZ\Humanizer.resources.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\uz-Latn-UZ\Humanizer.resources.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\vi\Humanizer.resources.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\zh-CN\Humanizer.resources.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\zh-Hans\Humanizer.resources.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\zh-Hant\Humanizer.resources.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.resources.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.resources.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.resources.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.resources.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.resources.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.resources.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.resources.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.resources.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.resources.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.resources.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.resources.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.resources.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.resources.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.Features.resources.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.Features.resources.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.Features.resources.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.Features.resources.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.Features.resources.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.Features.resources.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.Features.resources.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.Features.resources.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.Features.resources.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.Features.resources.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.Features.resources.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.Features.resources.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.Features.resources.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.Scripting.resources.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.Scripting.resources.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.Scripting.resources.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.Scripting.resources.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.Scripting.resources.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.Scripting.resources.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.Scripting.resources.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.Scripting.resources.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.Scripting.resources.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.Scripting.resources.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.Scripting.resources.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.Scripting.resources.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.Scripting.resources.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\runtimes\win\lib\net7.0\Microsoft.Win32.SystemEvents.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\runtimes\win-x64\native\comerr64.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\runtimes\win-x64\native\gssapi64.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\runtimes\win-x64\native\k5sprt64.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\runtimes\win-x64\native\krb5_64.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\runtimes\win-x64\native\krbcc64.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Drawing.Common.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Windows.Extensions.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\obj\Debug\net8.0\rcsa.csproj.AssemblyReference.cache
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\obj\Debug\net8.0\rcsa.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\obj\Debug\net8.0\rcsa.AssemblyInfoInputs.cache
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\obj\Debug\net8.0\rcsa.AssemblyInfo.cs
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\obj\Debug\net8.0\rcsa.csproj.CoreCompileInputs.cache
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\obj\Debug\net8.0\rcsa.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\obj\Debug\net8.0\rcsa.RazorAssemblyInfo.cache
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\obj\Debug\net8.0\rcsa.RazorAssemblyInfo.cs
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\obj\Debug\net8.0\staticwebassets.development.json
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\obj\Debug\net8.0\staticwebassets\msbuild.rcsa.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\obj\Debug\net8.0\staticwebassets\msbuild.build.rcsa.props
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.rcsa.props
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.rcsa.props
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\obj\Debug\net8.0\staticwebassets.pack.json
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\obj\Debug\net8.0\scopedcss\bundle\rcsa.styles.css
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\obj\Debug\net8.0\rcsa.csproj.Up2Date
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\obj\Debug\net8.0\rcsa.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\obj\Debug\net8.0\refint\rcsa.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\obj\Debug\net8.0\rcsa.pdb
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\obj\Debug\net8.0\rcsa.genruntimeconfig.cache
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\obj\Debug\net8.0\ref\rcsa.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\System.Data.SqlClient.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\runtimes\win-arm64\native\sni.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\runtimes\win-x64\native\sni.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\runtimes\win-x86\native\sni.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\runtimes\unix\lib\net8.0\System.Data.SqlClient.dll
+C:\Users\user\Desktop\New folder\rcsa\rcsa\rcsa\bin\Debug\net8.0\runtimes\win\lib\net8.0\System.Data.SqlClient.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\appsettings.Development.json
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\appsettings.json
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\rcsa.staticwebassets.runtime.json
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\rcsa.staticwebassets.endpoints.json
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\rcsa.exe
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\rcsa.deps.json
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\rcsa.runtimeconfig.json
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\rcsa.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\rcsa.pdb
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\BouncyCastle.Cryptography.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\Google.Protobuf.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\Humanizer.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\K4os.Compression.LZ4.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\K4os.Compression.LZ4.Streams.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\K4os.Hash.xxHash.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\Microsoft.AspNetCore.Razor.Language.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\Microsoft.Bcl.AsyncInterfaces.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\Microsoft.Build.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\Microsoft.Build.Framework.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\Microsoft.CodeAnalysis.AnalyzerUtilities.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\Microsoft.CodeAnalysis.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\Microsoft.CodeAnalysis.CSharp.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\Microsoft.CodeAnalysis.CSharp.Features.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\Microsoft.CodeAnalysis.CSharp.Workspaces.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\Microsoft.CodeAnalysis.Elfie.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\Microsoft.CodeAnalysis.Features.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\Microsoft.CodeAnalysis.Razor.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\Microsoft.CodeAnalysis.Scripting.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\Microsoft.CodeAnalysis.Workspaces.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\Microsoft.DiaSymReader.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\Microsoft.DotNet.Scaffolding.Shared.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Design.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Relational.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\Microsoft.Extensions.DependencyModel.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\Microsoft.NET.StringTools.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\Microsoft.VisualStudio.Web.CodeGeneration.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\Microsoft.VisualStudio.Web.CodeGeneration.Core.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\dotnet-aspnet-codegenerator-design.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\Microsoft.VisualStudio.Web.CodeGeneration.EntityFrameworkCore.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\Microsoft.VisualStudio.Web.CodeGeneration.Templating.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\Microsoft.VisualStudio.Web.CodeGeneration.Utils.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\Microsoft.VisualStudio.Web.CodeGenerators.Mvc.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\Microsoft.Win32.SystemEvents.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\Mono.TextTemplating.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\MySql.Data.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\MySql.EntityFrameworkCore.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\Newtonsoft.Json.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\NuGet.Common.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\NuGet.Configuration.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\NuGet.DependencyResolver.Core.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\NuGet.Frameworks.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\NuGet.LibraryModel.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\NuGet.Packaging.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\NuGet.ProjectModel.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\NuGet.Protocol.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\NuGet.Versioning.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\System.CodeDom.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\System.Composition.AttributedModel.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\System.Composition.Convention.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\System.Composition.Hosting.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\System.Composition.Runtime.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\System.Composition.TypedParts.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\System.Configuration.ConfigurationManager.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\System.Data.SqlClient.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\System.Drawing.Common.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\System.Reflection.MetadataLoadContext.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\System.Security.Cryptography.ProtectedData.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\System.Security.Permissions.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\System.Windows.Extensions.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\ZstdSharp.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\af\Humanizer.resources.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\ar\Humanizer.resources.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\az\Humanizer.resources.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\bg\Humanizer.resources.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\bn-BD\Humanizer.resources.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\cs\Humanizer.resources.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\da\Humanizer.resources.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\de\Humanizer.resources.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\el\Humanizer.resources.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\es\Humanizer.resources.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\fa\Humanizer.resources.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\fi-FI\Humanizer.resources.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\fr\Humanizer.resources.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\fr-BE\Humanizer.resources.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\he\Humanizer.resources.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\hr\Humanizer.resources.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\hu\Humanizer.resources.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\hy\Humanizer.resources.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\id\Humanizer.resources.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\is\Humanizer.resources.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\it\Humanizer.resources.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\ja\Humanizer.resources.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\ko-KR\Humanizer.resources.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\ku\Humanizer.resources.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\lv\Humanizer.resources.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\ms-MY\Humanizer.resources.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\mt\Humanizer.resources.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\nb\Humanizer.resources.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\nb-NO\Humanizer.resources.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\nl\Humanizer.resources.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\pl\Humanizer.resources.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\pt\Humanizer.resources.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\ro\Humanizer.resources.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\ru\Humanizer.resources.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\sk\Humanizer.resources.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\sl\Humanizer.resources.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\sr\Humanizer.resources.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\sr-Latn\Humanizer.resources.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\sv\Humanizer.resources.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\th-TH\Humanizer.resources.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\tr\Humanizer.resources.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\uk\Humanizer.resources.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\uz-Cyrl-UZ\Humanizer.resources.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\uz-Latn-UZ\Humanizer.resources.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\vi\Humanizer.resources.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\zh-CN\Humanizer.resources.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\zh-Hans\Humanizer.resources.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\zh-Hant\Humanizer.resources.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.resources.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.resources.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.resources.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.resources.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.resources.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.resources.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.resources.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.resources.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.resources.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.resources.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.resources.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.resources.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.resources.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.Features.resources.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.Features.resources.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.Features.resources.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.Features.resources.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.Features.resources.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.Features.resources.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.Features.resources.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.Features.resources.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.Features.resources.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.Features.resources.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.Features.resources.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.Features.resources.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.Features.resources.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.Scripting.resources.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.Scripting.resources.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.Scripting.resources.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.Scripting.resources.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.Scripting.resources.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.Scripting.resources.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.Scripting.resources.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.Scripting.resources.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.Scripting.resources.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.Scripting.resources.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.Scripting.resources.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.Scripting.resources.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.Scripting.resources.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\runtimes\win\lib\net7.0\Microsoft.Win32.SystemEvents.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\runtimes\win-x64\native\comerr64.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\runtimes\win-x64\native\gssapi64.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\runtimes\win-x64\native\k5sprt64.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\runtimes\win-x64\native\krb5_64.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\runtimes\win-x64\native\krbcc64.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\runtimes\win-arm64\native\sni.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\runtimes\win-x64\native\sni.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\runtimes\win-x86\native\sni.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\runtimes\unix\lib\net8.0\System.Data.SqlClient.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\runtimes\win\lib\net8.0\System.Data.SqlClient.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Drawing.Common.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Security.Cryptography.ProtectedData.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Windows.Extensions.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\obj\Debug\net8.0\rcsa.csproj.AssemblyReference.cache
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\obj\Debug\net8.0\rcsa.GeneratedMSBuildEditorConfig.editorconfig
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\obj\Debug\net8.0\rcsa.AssemblyInfoInputs.cache
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\obj\Debug\net8.0\rcsa.AssemblyInfo.cs
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\obj\Debug\net8.0\rcsa.csproj.CoreCompileInputs.cache
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\obj\Debug\net8.0\rcsa.MvcApplicationPartsAssemblyInfo.cache
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\obj\Debug\net8.0\rcsa.RazorAssemblyInfo.cache
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\obj\Debug\net8.0\rcsa.RazorAssemblyInfo.cs
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\obj\Debug\net8.0\scopedcss\bundle\rcsa.styles.css
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\obj\Debug\net8.0\staticwebassets.build.json
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\obj\Debug\net8.0\staticwebassets.development.json
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\obj\Debug\net8.0\staticwebassets.build.endpoints.json
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\obj\Debug\net8.0\staticwebassets\msbuild.rcsa.Microsoft.AspNetCore.StaticWebAssets.props
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\obj\Debug\net8.0\staticwebassets\msbuild.rcsa.Microsoft.AspNetCore.StaticWebAssetEndpoints.props
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\obj\Debug\net8.0\staticwebassets\msbuild.build.rcsa.props
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.rcsa.props
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.rcsa.props
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\obj\Debug\net8.0\staticwebassets.pack.json
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\obj\Debug\net8.0\rcsa.csproj.Up2Date
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\obj\Debug\net8.0\rcsa.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\obj\Debug\net8.0\refint\rcsa.dll
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\obj\Debug\net8.0\rcsa.pdb
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\obj\Debug\net8.0\rcsa.genruntimeconfig.cache
+F:\Project Files\dotnet\update 2\rcsa\rcsa\rcsa\obj\Debug\net8.0\ref\rcsa.dll

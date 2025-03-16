@@ -1,0 +1,296 @@
+﻿@model List<rcsa.Models.assessments_pe>
+
+@{
+    Layout = "~/Views/Shared/_aLayout.cshtml";
+    string userRole = @ViewBag.BranchName; // Replace with dynamic user role if needed
+}
+
+<!-- Styles -->
+<style>
+    body {
+        font-family: 'Arial', sans-serif;
+        background-color: #f4f7fa;
+        margin: 0;
+        padding: 0;
+    }
+
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+
+    h2.text-success {
+        color: #2dbe60;
+        text-align: center;
+        margin-bottom: 30px;
+        font-size: 2rem;
+    }
+
+    .table-responsive {
+        margin-top: 20px;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    th, td {
+        padding: 12px;
+        text-align: left;
+    }
+
+    th {
+        background-color: #f1f1f1;
+        color: #333;
+        font-weight: bold;
+    }
+
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+
+    tr:hover {
+        background-color: #f1f1f1;
+    }
+
+    .table-light {
+        background-color: #f9f9f9;
+    }
+
+    .table-success {
+        background-color: #d4edda;
+    }
+
+    .table-info {
+        background-color: #d1ecf1;
+    }
+
+    .btn-primary {
+        background-color: #007bff;
+        color: white;
+        border: none;
+        padding: 12px 20px;
+        border-radius: 5px;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+
+    .form-control.comment-field {
+        display: none;
+        width: 100%;
+        padding: 10px;
+        border-radius: 5px;
+        border: 1px solid #ddd;
+        background-color: #fff;
+    }
+
+        .form-control.comment-field:focus {
+            border-color: #007bff;
+            outline: none;
+        }
+
+    .alert-warning {
+        background-color: #fff3cd;
+        color: #856404;
+        padding: 15px;
+        border-radius: 5px;
+        margin-bottom: 20px;
+    }
+
+    .d-flex {
+        display: flex;
+        align-items: center;
+    }
+
+    .me-3 {
+        margin-right: 15px;
+    }
+
+    label {
+        font-size: 1.1rem;
+        cursor: pointer;
+    }
+
+    input[type="radio"] {
+        margin-right: 10px;
+        cursor: pointer;
+    }
+
+    .notapplicable-answer,
+    .negative-answer {
+        cursor: pointer;
+    }
+
+    .notapplicable-answer {
+        color: #ffb100;
+    }
+
+    .negative-answer {
+        color: #d9534f;
+    }
+
+    /* Adjust spacing */
+    .container.mt-4 {
+        padding-top: 10px;
+    }
+
+    /* Custom Radio Button Styling */
+    .answer-options {
+        display: flex;
+        gap: 20px;
+    }
+
+    .answer-option {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+    }
+
+        .answer-option label {
+            margin: 0;
+            font-size: 1rem;
+        }
+
+        .answer-option input[type="radio"] {
+            margin: 0;
+        }
+
+        .answer-option .icon {
+            font-size: 1.2rem;
+        }
+
+            .answer-option .icon.yes {
+                color: #28a745; /* Green for Yes */
+            }
+
+            .answer-option .icon.no {
+                color: #dc3545; /* Red for No */
+            }
+
+            .answer-option .icon.na {
+                color: #ffc107; /* Yellow for Not Applicable */
+            }
+</style>
+
+<div class="container mt-4">
+    <!-- Page Title -->
+    <h2 class="text-success">Assessment</h2>
+
+    <!-- Assessment Table -->
+    <div class="table-responsive mt-3">
+        @if (!string.IsNullOrEmpty(ViewBag.AssessmentMessage))
+        {
+            <div class="alert alert-warning">
+                @ViewBag.AssessmentMessage
+            </div>
+        }
+        else
+        {
+            <div class="answer-option">
+                <div class="d-flex justify-content-between mb-4">
+                    <form method="post" action="@Url.Action("DeleteAssessments", "Assessment")">
+                        <!-- Hidden inputs to pass FromDate, ToDate, and AsType -->
+                        <input type="hidden" name="FromDate" value="@ViewBag.FromDate" />
+                        <input type="hidden" name="ToDate" value="@ViewBag.ToDate" />
+                        <input type="hidden" name="AsType" value="@ViewBag.AsType" />
+
+                        <div class="d-flex justify-content-between mb-4">
+                            <div><strong>From Date:</strong> @ViewBag.FromDate</div>
+                            <div><strong>To Date:</strong> @ViewBag.ToDate</div>
+                            <div><strong>Assessment Type:</strong> @ViewBag.AsType</div>
+                        </div>
+
+                        <button type="submit" class="btn btn-danger">Delete Assessment</button>
+                    </form>
+
+                </div>
+            </div>
+            <form >
+             
+                <div class="table-responsive mt-3">
+                    <table class="table table-striped">
+                        <thead class="table-light">
+                            <tr>
+                                <th></th>
+                                <th>Question</th>
+                                <th> Allowcated Marks</th>
+                               
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @{
+                                int headingIndex = 1; // Main heading counter
+                                int index = 0; // Row index for model binding
+                            }
+
+                            @foreach (var mainHeadingGroup in Model.GroupBy(q => q.headingTitel))
+                            {
+                                int subHeadingIndex = 1; // Subheading counter under each main heading
+
+                                <!-- Main Heading -->
+                                <tr class="table-success">
+                                    <td colspan="6"><strong>@headingIndex. @mainHeadingGroup.Key</strong></td>
+                                </tr>
+
+                                @foreach (var subHeadingGroup in mainHeadingGroup.GroupBy(q => q.subheadingTitel))
+                                {
+                                    int questionIndex = 1; // Question counter under each subheading
+
+                                    <!-- Sub Heading -->
+                                    <tr class="table-info">
+                                        <td colspan="6"><strong>@headingIndex.@subHeadingIndex @subHeadingGroup.Key</strong></td>
+                                    </tr>
+
+                                    @foreach (var question in subHeadingGroup)
+                                    {
+                                        <tr data-naflag="@question.NAflag">
+                                            <td>@headingIndex.@subHeadingIndex.@questionIndex</td>
+
+                                            <td>
+                                                @question.QuestionText
+                                                <input type="hidden" name="[@index].QuestionId" value="@question.QuestionId" />
+                                                <input type="hidden" name="[@index].QuestionText" value="@question.QuestionText" />
+                                                <input type="hidden" name="[@index].Marks" value="@question.Marks" />
+                                                <input type="hidden" name="[@index].MainHeading" value="@question.MainHeading" />
+                                                <input type="hidden" name="[@index].SubHeading" value="@question.SubHeading" />
+                                                <input type="hidden" name="[@index].headingTitel" value="@question.headingTitel" />
+                                                <input type="hidden" name="[@index].subheadingTitel" value="@question.subheadingTitel" />
+                                                <input type="hidden" name="[@index].fromdate" value="@question.fromdate" />
+                                                <input type="hidden" name="[@index].todate" value="@question.todate" />
+                                                <input type="hidden" name="[@index].NAflag" value="@question.NAflag" />
+                                                <input type="hidden" name="[@index].Astype" value="@question.Astype" />
+                                            </td>
+                                            <td>@question.Marks</td>
+                                           
+                                        
+                                        </tr>
+                                        index++; // Increment index for each question
+                                        questionIndex++; // Increment question number
+                                    }
+
+                                    subHeadingIndex++; // Increment subheading number
+                                }
+
+                                headingIndex++; // Increment heading number
+                            }
+                        </tbody>
+                    </table>
+                </div>
+             
+            </form>
+        }
+    </div>
+</div>
+
+<script>
+
+
+</script>

@@ -1,0 +1,283 @@
+﻿@model List<rcsa.Models.AssessmentAnswer>
+
+@{
+    Layout = "~/Views/Shared/_aLayout.cshtml";
+    string userRole = @ViewBag.BranchName; // Replace with dynamic user role if needed
+}
+
+<div class="container mt-4">
+    <h2 class="text-success">Branch Review</h2>
+
+    <div class="table-responsive mt-3">
+        @if (!string.IsNullOrEmpty(ViewBag.AssessmentMessage))
+        {
+            <div class="alert alert-warning">
+                @ViewBag.AssessmentMessage
+            </div>
+        }
+        else
+        {
+            <form action="@Url.Action("SaveBranchAnswers", "Assessment")" method="post" onsubmit="console.log('Form submitted');">
+                @Html.AntiForgeryToken()
+
+                <div class="table-responsive mt-3">
+                    <table id="exportTable" class="table table-striped">
+                        <thead class="table-light">
+                            <tr>
+                                <th>No.</th>
+                                <th>Question</th>
+                                <th>Marks</th>
+                                <th>Service Center Answer</th>
+                                <th>Branch Answer</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            @{
+                                int index = 0;
+                                int mainHeadingIndex = 1;
+                                double totalScore = 0;
+                            }
+
+                            @foreach (var mainHeadingGroup in Model.GroupBy(q => q.headingTitel))
+                            {
+                                <!-- Main Heading -->
+                                <tr class="table-success">
+                                    <td colspan="5"><strong>@mainHeadingIndex. @mainHeadingGroup.Key</strong></td>
+                                </tr>
+
+                                int subHeadingIndex = 1;
+
+                                @foreach (var subHeadingGroup in mainHeadingGroup.GroupBy(q => q.subheadingTitel))
+                                {
+                                    <!-- Sub Heading -->
+                                    <tr class="table-info">
+                                        <td colspan="5"><strong>@mainHeadingIndex.@subHeadingIndex @subHeadingGroup.Key</strong></td>
+                                    </tr>
+
+                                    int questionIndex = 1;
+
+                                    @foreach (var question in subHeadingGroup)
+                                    {
+                                        totalScore = question.TotalScore; // Sum up total score
+
+                                        <tr data-service-center-id="@question.ServiceCenterId">
+                                            <td>@mainHeadingIndex.@subHeadingIndex.@questionIndex</td>
+                                            <td>
+                                                @question.AnswerText
+                                                <input type="hidden" name="[@index].QuestionId" value="@question.QuestionId" />
+                                                <input type="hidden" name="[@index].Marks" value="@question.Marks" />
+                                                <input type="hidden" name="[@index].ServiceCenterId" value="@question.ServiceCenterId" />
+                                                <input type="hidden" name="[@index].TotalScore" value="@question.TotalScore" />
+                                            </td>
+                                            <td>@question.Marks</td>
+                                            <td>
+                                                <div class="col-md-2">
+                                                    @{
+                                                        string displayAnswer = question.ServiceCenterAnswer == "Yes" ? "Yes" :
+                                                        question.ServiceCenterAnswer == "NO" ? "No" :
+                                                        question.ServiceCenterAnswer == "NA" ? "N/A" : "";
+                                                    }
+
+                                                    <span class="answer-label @(question.ServiceCenterAnswer == "NO" || question.ServiceCenterAnswer == "NA" ? "clickable" : "")"
+                                                          data-comment="@question.Scomment"
+                                                          onclick="showComment(this)">
+
+                                                        @displayAnswer
+
+                                                    </span>
+
+                                                    <input type="hidden" name="[@index].ServiceCenterAnswer" value="@question.ServiceCenterAnswer" />
+                                                    <input type="hidden" name="[@index].Scomment" value="@question.Scomment" />
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="d-flex align-items-center">
+                                                    <!-- Yes radio button -->
+                                                    <label class="me-3">
+                                                        <input type="radio" name="[@index].BranchAnswer" value="Yes"
+                                                        @(question.BranchAnswer == "Yes" ? "checked" : "")
+                                                               onclick="toggleCommentField(this, @index)" required /> ✔
+                                                    </label>
+
+                                                    <!-- No radio button -->
+                                                    <label class="me-3">
+                                                        <input type="radio" name="[@index].BranchAnswer" value="NO" class="negative-answer"
+                                                        @(question.BranchAnswer == "NO" ? "checked" : "")
+                                                               onclick="toggleCommentField(this, @index)" /> ✖
+                                                    </label>
+
+                                                    <!-- N/A radio button (if allowed) -->
+                                                    @if (question.NAflag == 0)
+                                                    {
+                                                        <label class="me-3">
+                                                            <input type="radio" name="[@index].BranchAnswer" value="NA" class="notapplicable-answer"
+                                                            @(question.BranchAnswer == "NA" ? "checked" : "")
+                                                                   onclick="toggleCommentField(this, @index)" /> ⬜
+                                                        </label>
+                                                    }
+                                                </div>
+
+                                                <!-- Comment input field (Initially Hidden) -->
+                                                <input type="text" id="comment-@index" name="[@index].Bcomment" value="@question.Scomment" style="display: none;" ondblclick="showCommentModal(@index)" />
+                                            </td>
+                                        </tr>
+
+                                        index++;
+                                        questionIndex++;
+                                    }
+
+                                    subHeadingIndex++;
+                                }
+
+                                mainHeadingIndex++;
+                            }
+                        </tbody>
+
+                        <!-- Total Score Row at the End -->
+                        <tfoot>
+                            <tr class="table-warning">
+                                <td colspan="4" class="text-end"><strong>Service Center Total Score:</strong></td>
+                                <td><strong>@totalScore</strong></td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        }
+    </div>
+</div>
+
+<!-- Modal for Comment Input -->
+<div class="modal fade" id="commentModal" tabindex="-1" aria-labelledby="commentModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="commentModalLabel">Enter Comment</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <textarea id="modalCommentInput" class="form-control" rows="3"></textarea>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" onclick="saveComment()">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .answer-label {
+        font-weight: bold;
+        color: #333;
+        cursor: pointer;
+    }
+
+    .clickable {
+        color: red;
+        text-decoration: underline;
+    }
+
+    /* Custom Modal Styling */
+    #commentModal .modal-content {
+        border-radius: 10px;
+    }
+
+    #commentModal .modal-header {
+        background-color: #f8f9fa;
+        border-bottom: 1px solid #dee2e6;
+    }
+
+    #commentModal .modal-title {
+        font-weight: bold;
+    }
+
+    #commentModal .modal-body textarea {
+        resize: none; /* Disable resizing */
+    }
+
+    #commentModal .modal-footer {
+        border-top: 1px solid #dee2e6;
+    }
+
+    /* Comment Field Styling */
+    .comment-field {
+        margin-left: 10px;
+        width: 200px; /* Adjust width as needed */
+        display: none; /* Hidden by default */
+    }
+
+    /* Error Message Styling */
+    #commentError {
+        font-size: 14px;
+    }
+</style>
+
+<script>
+    let currentCommentIndex = null;
+
+    function showCommentModal(index) {
+        currentCommentIndex = index;
+        let commentInput = document.getElementById("comment-" + index);
+        document.getElementById("modalCommentInput").value = commentInput.value;
+        var modal = new bootstrap.Modal(document.getElementById('commentModal'));
+        modal.show();
+    }
+
+    function saveComment() {
+        if (currentCommentIndex !== null) {
+            let commentInput = document.getElementById("comment-" + currentCommentIndex);
+            let modalCommentInput = document.getElementById("modalCommentInput");
+            commentInput.value = modalCommentInput.value;
+            var modal = bootstrap.Modal.getInstance(document.getElementById('commentModal'));
+            modal.hide();
+        }
+    }
+
+    function toggleCommentField(radio, index) {
+        let commentInput = document.getElementById("comment-" + index);
+
+        if (radio.value === "Yes") {
+            // Hide and clear comment field if "Yes" is selected
+            commentInput.style.display = "none";
+            commentInput.value = "";
+        } else {
+            // Show the comment field if "No" or "N/A" is selected
+            commentInput.style.display = "block";
+            commentInput.value = "";
+            commentInput.setAttribute("required", "required");
+        }
+    }
+
+    document.querySelector("form").addEventListener("submit", function (event) {
+        let invalid = false;
+        document.querySelectorAll("input[type=radio]:checked").forEach(radio => {
+            if (radio.value === "NO" || radio.value === "NA") {
+                let index = radio.name.match(/\[(\d+)\]/)[1];
+                let commentInput = document.getElementById("comment-" + index);
+                if (!commentInput.value.trim()) {
+                    invalid = true;
+                    commentInput.style.border = "2px solid red"; // Highlight field
+                } else {
+                    commentInput.style.border = ""; // Remove highlight if filled
+                }
+            }
+        });
+
+        if (invalid) {
+            event.preventDefault(); // Stop form submission
+            alert("Please enter a comment for 'NO' or 'N/A' selections.");
+        }
+    });
+
+    function showComment(element) {
+        let comment = element.getAttribute("data-comment");
+        if (comment) {
+            alert("Comment: " + comment);
+        } else {
+            alert("No comment available.");
+        }
+    }
+</script>

@@ -1,0 +1,151 @@
+﻿@model List<rcsa.Models.Rangs>
+
+@{
+    Layout = "~/Views/Shared/_aLayout.cshtml";
+    ViewBag.Title = "Assessment Edit";
+    var fromDates = ViewBag.FromDates as List<DateTime>;
+}
+
+<h2> Assessment Deadline Change </h2>
+
+@if (ViewBag.Message != null)
+{
+    <div class="alert alert-info">
+        @ViewBag.Message
+    </div>
+}
+else
+{
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Own Assessment Deadline</th>
+                <th>Branch Review Deadline</th>
+                <th>Region Review Deadline</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var assessment in Model)
+            {
+                <tr data-id="@assessment.Id">
+                    <td>@assessment.Id</td>
+                    <td>
+                        <span class="view-mode">@assessment.scdays</span>
+                        <input type="text" class="edit-mode form-control" value="@assessment.scdays" style="display: none;" />
+                    </td>
+                    <td>
+                        <span class="view-mode">@assessment.BRdays</span>
+                        <input type="text" class="edit-mode form-control" value="@assessment.BRdays" style="display: none;" />
+                    </td>
+                    <td>
+                        <span class="view-mode">@assessment.RRdays</span>
+                        <input type="text" class="edit-mode form-control" value="@assessment.RRdays" style="display: none;" />
+                    </td>
+                    <td>
+                        <button class="btn btn-primary btn-sm edit-btn">Edit</button>
+                        <button class="btn btn-success btn-sm save-btn" style="display: none;">Save</button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+   
+}
+<h3>Published Assessment List</h3>
+@if (ViewBag.FromDates != null && ((List<Dictionary<string, object>>)ViewBag.FromDates).Count > 0)
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Start Date</th>
+                <th>End Date</th>
+                <th>Assessment Type</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in (List<Dictionary<string, object>>)ViewBag.FromDates)
+            {
+                var fromDate = Convert.ToDateTime(item["fromdate"]).ToString("yyyy-MM-dd");
+                var toDate = Convert.ToDateTime(item["todate"]).ToString("yyyy-MM-dd");
+                var asType = item["Astype"].ToString();
+                var displayType = asType == "B" ? "Branch" :
+                asType == "S" ? "Service Center" :
+                asType == "R" ? "RRO" : asType;
+
+                <tr onclick="passToHistoryReport('@fromDate', '@toDate', '@asType')">
+                    <td>@fromDate</td>
+                    <td>@toDate</td>
+                    <td>@displayType</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No records found.</p>
+}
+
+
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+
+    function passToHistoryReport(fromDate, toDate, asType) {
+        // Redirect to the HistoryReport function with parameters
+        window.location.href = `/Assessment/HistoryReport?fromDate=${fromDate}&toDate=${toDate}&asType=${asType}`;
+    }
+    $(document).ready(function () {
+        $(".edit-btn").click(function () {
+            var row = $(this).closest("tr");
+
+            // Hide all other rows' edit fields and reset their buttons
+            $(".edit-mode").hide();
+            $(".view-mode").show();
+            $(".save-btn").hide();
+            $(".edit-btn").show();
+
+            // Show edit fields only for the clicked row
+            row.find(".view-mode").hide();
+            row.find(".edit-mode").show();
+            row.find(".edit-btn").hide();
+            row.find(".save-btn").show();
+        });
+
+        $(".save-btn").click(function () {
+            var row = $(this).closest("tr");
+            var id = row.data("id");
+            var scdays = row.find("input:eq(0)").val();
+            var BRdays = row.find("input:eq(1)").val();
+            var RRdays = row.find("input:eq(2)").val();
+
+            $.ajax({
+                url: "/Assessment/SaveEdit",
+                type: "POST",
+                data: {
+                    Id: id,
+                    scdays: scdays,
+                    BRdays: BRdays,
+                    RRdays: RRdays
+                },
+                success: function (response) {
+                    if (response.success) {
+                        row.find(".view-mode:eq(0)").text(scdays);
+                        row.find(".view-mode:eq(1)").text(BRdays);
+                        row.find(".view-mode:eq(2)").text(RRdays);
+
+                        row.find(".view-mode").show();
+                        row.find(".edit-mode").hide();
+                        row.find(".edit-btn").show();
+                        row.find(".save-btn").hide();
+                    } else {
+                        alert("Error updating data");
+                    }
+                }
+            });
+        });
+    });
+</script>

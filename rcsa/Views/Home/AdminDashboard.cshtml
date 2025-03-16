@@ -1,0 +1,859 @@
+﻿@model List<rcsa.Models.User>
+@{
+    Layout = "~/Views/Shared/_aLayout.cshtml";
+    string userRole = "Risk Mgt. Department";
+    bool isVisible = true;
+}
+
+@if (ViewBag.Branch_type_code == "SERV_CEN")
+{
+     
+    <form id="searchForm" action="/Assessment/OldOwnreport" method="get" class="form-container">
+        <h5> Own Assessments</h5>
+        <select id="dateRangeDropdown" name="fromdate">
+            <option value="">Select Quarter Start Date</option>
+            @foreach (var date in ViewBag.fromdate)
+            {
+                <option value="@date">@date.ToString("yyyy-MM-dd")</option>
+            }
+        </select>
+        <button type="submit">Search</button>
+    </form>
+
+    
+    <form id="assessmentForm" action="/Assessment/ViewRroAssessment" method="get" class="form-container">
+        <h5>RRO Assessments</h5>
+        <select id="FromDate" name="FromDate" class="form-control" required>
+            <option value="">Select Semi Quarter Start Date</option>
+            @foreach (var date in ViewBag.fromdatesubmited)
+            {
+                <option value="@date">@date.ToString("yyyy-MM-dd")</option>
+            }
+        </select>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+
+
+    <script>
+        document.getElementById("assessmentForm").addEventListener("submit", function (event) {
+            event.preventDefault(); // Prevent the default form submission
+
+            // Get the selected values
+            var serviceCenterElement = document.getElementById("ServiceCenterId");
+            var serviceCenterId = serviceCenterElement ? serviceCenterElement.value : @ViewBag.BranchID; // Use 0 if not found
+            var fromDate = document.getElementById("FromDate").value;
+
+            if (!fromDate) {
+                alert("Please select a date.");
+                return;
+            }
+
+            // Redirect to the desired URL
+            window.location.href = "/Assessment/ViewRroAssessment?servicecenterId=" + serviceCenterId + "&fromdate=" + fromDate;
+        });
+        function submitSearch() {
+            var fromdate = document.getElementById("dateRangeDropdown").value;
+
+            if (!fromdate) {
+                alert("Please select a date!"); 
+                return;
+            }
+
+            $.ajax({
+                url: "/Assessment/OldOwnreport",
+                type: "GET",
+                data: { fromdate: fromdate },
+                success: function (response) {
+                    $("#results").html(response); // Show results dynamically
+                },
+                error: function () {
+                    alert("Error retrieving data. Please try again.");
+                }
+            });
+        }
+    </script>
+}
+
+ @if (ViewBag.Branch_type_code == "BRANCH")
+        {
+   <div class="container mt-4">
+
+        <div class="container">
+            <div class="row">
+                <!-- Forms Section -->
+                <div class="col-md-6">
+                    <h5>Own Assessments</h5>
+                    <form id="searchForm" action="/Assessment/OldOwnreport" method="get" class="form-container">
+                        
+                        <select id="dateRangeDropdown" name="fromdate" class="form-control">
+                            <option value="">Select a Date</option>
+                            @foreach (var date in ViewBag.fromdate)
+                            {
+                                <option value="@date">@date.ToString("yyyy-MM-dd")</option>
+                            }
+                        </select>
+                        <button type="submit">Search</button>
+                    </form>
+
+                    <h5>RRo Assessments</h5>
+                    <form action="/Assessment/ViewRroAssessment" method="get" class="form-container">
+                        
+                        <select class="form-control" id="ServiceCenterId" name="ServiceCenterId">
+                            <option value="">Select Service Center Or Branch</option>
+                            @foreach (var serviceCenter in ViewBag.ServiceCentersb)
+                            {
+                                <option value="@serviceCenter.BranchID">@serviceCenter.BranchName</option>
+                            }
+                        </select>
+
+                     
+                        <select id="FromDate" name="FromDate" class="form-control" required>
+                            <option value="">Select Semi Quarter Start Date</option>
+                            @foreach (var date in ViewBag.fromdatesubmited)
+                            {
+                                <option value="@date">@date.ToString("yyyy-MM-dd")</option>
+                            }
+                        </select>
+
+                        <button type="submit">Search</button>
+                    </form>
+                </div>
+
+                <!-- Chart Section -->
+                <div class="col-md-6 d-flex align-items-start justify-content-center">
+                    <div class="card shadow-lg w-100">
+                        <div class="card-header bg-primary text-white text-center">
+                            <h3>Service Center Status</h3>
+                        </div>
+                        <div class="card-body text-center">
+                            @if (ViewBag.BranchNames != null && ViewBag.BranchNames.Count > 0)
+                            {
+                                <canvas id="statusChart" width="200" height="200"></canvas>
+                            }
+                            else
+                            {
+                                <p class="text-muted">No branches available.</p>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div>
+
+        </div>
+
+       <!-- Pending Assessment Section -->
+    <div class="card shadow-lg mb-4">
+        <div class="card-header bg-danger text-white text-center">
+            <h3>Pending Review Assessment</h3>
+        </div>
+        <div class="card-body text-center">
+            @if (ViewBag.ServiceCenters != null && ViewBag.ServiceCenters.Count > 0)
+            {
+                @foreach (var serviceCenter in ViewBag.ServiceCenters)
+                {
+                    <button class="btn btn-outline-danger m-2 px-4 py-2 fw-bold"
+                            onclick="BranchReview('@serviceCenter.ServiceCenterId')">
+                        @serviceCenter.BranchName
+                    </button>
+                }
+            }
+            else
+            {
+                <p class="text-muted">No pending assessments.</p>
+            }
+        </div>
+    </div>
+
+        <div class="card shadow-lg mb-4">
+        <div class="card-header bg-danger text-white text-center">
+            <h3>Reviewd  Assessment</h3>
+        </div>
+        <div class="card-body text-center">
+                @if (ViewBag.RreviewserviceCenters != null && ViewBag.RreviewserviceCenters.Count > 0)
+            {
+                @foreach (var serviceCenter in ViewBag.RreviewserviceCenters)
+                {
+                    <button class="btn btn-outline-danger m-2 px-4 py-2 fw-bold"
+                                onclick="BranchOwnreview('@serviceCenter.ServiceCenterId')">
+                        @serviceCenter.BranchName
+                    </button>
+                }
+            }
+            else
+            {
+                <p class="text-muted">No Review assessments.</p>
+            }
+        </div>
+    </div>
+
+  
+     
+</div>
+
+        <script>
+    
+    
+            document.addEventListener("DOMContentLoaded", function () {
+                // Data from ViewBag
+                var branches = @Html.Raw(Json.Serialize(ViewBag.BranchNames));
+
+                // Extract branch names and statuses
+                var branchNames = branches.map(b => b.branchName);
+                var statuses = branches.map(b => b.status);
+
+                // Group branches by status
+                var groupedBranches = {
+                    "Submitted": branches.filter(b => b.status === "Submitted").map(b => b.branchName),
+                    "Pending": branches.filter(b => b.status !== "Submitted").map(b => b.branchName)
+                };
+
+                // Count the number of "Submitted" and "Pending" statuses
+                var submittedCount = groupedBranches["Submitted"].length;
+                var pendingCount = groupedBranches["Pending"].length;
+
+                // Data for the pie chart
+                var pieData = {
+                    labels: ["Submitted", "Pending"],
+                    datasets: [{
+                        data: [submittedCount, pendingCount], // Count of each status
+                        backgroundColor: [
+                        '	rgb(255, 255, 15, 0.6)',
+                        ' rgb(153, 117, 117, 0.6)'
+                        ],
+                        borderColor: [
+                        'rgb(255, 255, 15, 1)',
+                        'rgb(153, 117, 117, 1)'
+                        ],
+                        borderWidth: 1
+                    }]
+                };
+
+                // Create the pie chart
+                var ctx = document.getElementById('statusChart').getContext('2d');
+                var statusChart = new Chart(ctx, {
+                    type: 'pie',
+                    data: pieData,
+                    options: {
+                        responsive: true, // Make the chart responsive
+                        maintainAspectRatio: false, // Allow custom sizing
+                        plugins: {
+                            legend: {
+                                position: 'top', // Position of the legend
+                            },
+                            tooltip: {
+                                callbacks: {
+                                    label: function (context) {
+                                        // Default label (status and count)
+                                        let label = context.label || '';
+                                        if (label) {
+                                            label += ': ';
+                                        }
+                                        label += context.raw; // Display the count
+
+                                        // Add branch names to the tooltip
+                                        const status = context.label; // "Submitted" or "Pending"
+                                        const branchesList = groupedBranches[status].join(', '); // Join branch names with a comma
+                                        label += `\nBranches: ${branchesList}`; // Add branch names to the tooltip
+
+                                        return label;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                });
+            });
+     
+        function submitSearch() {
+            var fromdate = document.getElementById("dateRangeDropdown").value;
+
+            if (!fromdate) {
+                alert("Please select a date!"); // Prevent empty submission
+                return;
+            }
+
+            $.ajax({
+                url: "/Assessment/OldOwnreport",
+                type: "GET",
+                data: { fromdate: fromdate },
+                success: function (response) {
+                    $("#results").html(response); // Show results dynamically
+                },
+                error: function () {
+                    alert("Error retrieving data. Please try again.");
+                }
+            });
+        }
+
+        </script>
+   
+        }
+@if (ViewBag.Branch_type_code == "REGION")
+{
+
+    <div class="container mt-4">
+        <h5>RRo Assessments</h5>
+    <form action="/Assessment/ViewRroAssessment" method="get" class="form-container">
+
+        <select class="form-control" id="ServiceCenterId" name="ServiceCenterId">
+            <option value="">Select Service Center Or Branch</option>
+            @foreach (var serviceCenter in ViewBag.ServiceCentersr)
+            {
+                <option value="@serviceCenter.BranchID">@serviceCenter.BranchName</option>
+            }
+        </select>
+
+
+        <select id="FromDate" name="FromDate" class="form-control" required>
+                <option value="">Select Semi Quarter Start Date</option>
+            @foreach (var date in ViewBag.fromdatesubmited)
+            {
+                <option value="@date">@date.ToString("yyyy-MM-dd")</option>
+            }
+        </select>
+
+        <button type="submit">Search</button>
+    </form>
+
+  
+        <div class="row">
+            <!-- Service Center Status Card -->
+            <div class="col-md-4">
+                <div class="card shadow-lg">
+                    <div class="card-header bg-primary text-white text-center">
+                        <h3>Service Center Submited</h3>
+                    </div>
+                    <div class="card-body text-center">
+                        @if (ViewBag.RegionUnderCenters != null && ViewBag.RegionUnderCenters.Count > 0)
+                        {
+                            <!-- Canvas for the first pie chart -->
+                            <canvas id="centerStatusChart" width="100" height="200"></canvas>
+                        }
+                        else
+                        {
+                            <p class="text-muted">No service centers available.</p>
+                        }
+                    </div>
+                </div>
+            </div>
+            <!-- Sevice center  Status Branch Review -->
+            <div class="col-md-4">
+                <div class="card shadow-lg">
+                    <div class="card-header bg-primary text-white text-center">
+                        <h3>S C Branch Review</h3>
+                    </div>
+                    <div class="card-body text-center">
+                        @if (ViewBag.RegionUnderCenters1 != null && ViewBag.RegionUnderCenters1.Count > 0)
+                        {
+                            <!-- Canvas for the first pie chart -->
+                            <canvas id="centerStatusChart2" width="100" height="200"></canvas>
+                        }
+                        else
+                        {
+                            <p class="text-muted">No service centers available.</p>
+                        }
+                    </div>
+                </div>
+            </div>
+            <!-- Branch Status Card -->
+            <div class="col-md-4">
+                <div class="card shadow-lg">
+                    <div class="card-header bg-primary text-white text-center">
+                        <h3>Branch Submited</h3>
+                    </div>
+                    <div class="card-body text-center">
+                        @if (ViewBag.RegionUnderBranch != null && ViewBag.RegionUnderBranch.Count > 0)
+                        {
+                            <!-- Canvas for the second pie chart -->
+                            <canvas id="branchStatusChart" width="100" height="200"></canvas>
+                        }
+                        else
+                        {
+                            <p class="text-muted">No branches available.</p>
+                        }
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div>
+    </div>
+    <div class="card shadow-lg mb-4">
+        <div class="card-header bg-danger text-white text-center">
+            <h3>Pending Review Service center </h3>
+        </div>
+        <div class="card-body text-center">
+            @if (ViewBag.Regionlistserice != null && ViewBag.Regionlistserice.Count > 0)
+            {
+                @foreach (var serviceCenter in ViewBag.Regionlistserice)
+                {
+                    <button class="btn btn-outline-danger m-2 px-4 py-2 fw-bold"
+                            onclick="RegionReview('@serviceCenter.ServiceCenterId')">
+                        @serviceCenter.BranchName
+                    </button>
+                }
+            }
+            else
+            {
+                <p class="text-muted">No pending assessments.</p>
+            }
+        </div>
+    </div>
+
+    <div class="card shadow-lg mb-4">
+        <div class="card-header bg-danger text-white text-center">
+            <h3>Pending Review Branch</h3>
+        </div>
+        <div class="card-body text-center">
+            @if (ViewBag.RegionlistsBranch != null && ViewBag.RegionlistsBranch.Count > 0)
+            {
+                @foreach (var serviceCenter in ViewBag.RegionlistsBranch)
+                {
+                    <button class="btn btn-outline-danger m-2 px-4 py-2 fw-bold"
+                            onclick="RegionReview('@serviceCenter.ServiceCenterId')">
+                        @serviceCenter.BranchName
+                    </button>
+                }
+            }
+            else
+            {
+                <p class="text-muted">No pending assessments.</p>
+            }
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            function createPieChart(canvasId, data, label, branches) {
+                var ctx = document.getElementById(canvasId).getContext('2d');
+                return new Chart(ctx, {
+                    type: 'pie',
+                    data: {
+                        labels: ["Submitted", "Pending"],
+                        datasets: [{
+                            label: label,
+                            data: [data.submittedCount, data.pendingCount],
+                            backgroundColor: [
+                                'rgb(255, 255, 15, 0.6)',
+                                'rgb(153, 117, 117, 0.6)'
+                            ],
+                            borderColor: [
+                                'rgb(255, 255, 15, 1)',
+                                'rgb(153, 117, 117, 1)'
+                            ],
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: { position: 'top' },
+                            tooltip: {
+                                bodyFont: {
+                                    size: 14 // Increase font size for readability
+                                },
+                                padding: 12, // Increase padding for better spacing
+                                displayColors: false, // Hide color box in tooltip
+                                callbacks: {
+                                    label: function (context) {
+                                        let status = context.label; // "Submitted" or "Pending"
+                                        let count = context.raw; // Number of branches in this category
+
+                                        // Filter branch names based on status
+                                        let filteredBranches = branches
+                                            .filter(b => (status === "Submitted" ? b.status === "Submitted" : b.status !== "Submitted"))
+                                            .map(b => b.branchName);
+
+                                        // Format branch list with line breaks
+                                        let branchList = filteredBranches.length > 0
+                                            ? filteredBranches.slice(0, 20).join('\n')  // Show first 20 branches
+                                            : 'No branches';
+
+                                        // If more than 20 branches, indicate there are more
+                                        if (filteredBranches.length > 20) {
+                                            branchList += `\n... +${filteredBranches.length - 20} more`;
+                                        }
+
+                                        return `${status}: ${count}\nBranches:\n${branchList}`;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+
+            var regionUnderCenters = @Html.Raw(Json.Serialize(ViewBag.RegionUnderCenters ?? new List<object>()));
+            var regionUnderCenters1 = @Html.Raw(Json.Serialize(ViewBag.RegionUnderCenters1 ?? new List<object>()));
+            var regionUnderBranch = @Html.Raw(Json.Serialize(ViewBag.RegionUnderBranch ?? new List<object>()));
+
+            var centerData = {
+                submittedCount: regionUnderCenters.filter(b => b.status === "Submitted").length,
+                pendingCount: regionUnderCenters.filter(b => b.status !== "Submitted").length
+            };
+
+            var centerData1 = {
+                submittedCount: regionUnderCenters1.filter(b => b.status === "Submitted").length,
+                pendingCount: regionUnderCenters1.filter(b => b.status !== "Submitted").length
+            };
+
+            var branchData = {
+                submittedCount: regionUnderBranch.filter(b => b.status === "Submitted").length,
+                pendingCount: regionUnderBranch.filter(b => b.status !== "Submitted").length
+            };
+
+            if (regionUnderCenters.length > 0) {
+                createPieChart("centerStatusChart", centerData, "Service Center Status", regionUnderCenters);
+            }
+            if (regionUnderCenters1.length > 0) {
+                createPieChart("centerStatusChart2", centerData1, "Branch Review Status", regionUnderCenters1);
+            }
+            if (regionUnderBranch.length > 0) {
+                createPieChart("branchStatusChart", branchData, "Branch Status", regionUnderBranch);
+            }
+
+      
+        });
+
+
+
+
+
+        function RegionReview(serviceCenterId) {
+            window.location.href = "/Assessment/RegionReview?serviceCenterId=" + serviceCenterId;
+        }
+    </script>
+
+  
+
+  
+}
+@if (ViewBag.Branch_type_code == "DEPT")
+{
+  <h4>RRO Reports</h4>
+    <form action="/Assessment/ViewRroAssessment" method="get" class="form-container">
+      
+        <select class="form-control" id="ServiceCenterId" name="ServiceCenterId">
+            <option value="">Select Service Center Or Branch</option>
+            @{
+
+                @foreach (var serviceCenter in ViewBag.ServiceCentersa)
+                {
+                    <option value="@serviceCenter.BranchID">
+                        @serviceCenter.BranchName
+                    </option>
+                }
+            }
+        </select>
+        <select id="FromDate" name="FromDate" class="form-control" required>
+            <option value="">Select Semi Quarter Start Date</option>
+            @foreach (var date in ViewBag.fromdatesubmited)
+            {
+                <option value="@date">@date.ToString("yyyy-MM-dd")</option>
+            }
+        </select>
+
+        <button type="submit">Search</button>
+    </form>
+
+    <h4>Service Centers</h4>
+   <div class="row">
+           
+            <div class="col-md-4">
+                <div class="card shadow-lg">
+        <div class="card-header bg-primary text-white text-center">
+            <h3>Service Center Status</h3>
+        </div>
+        <div class="card-body">
+            @if (ViewBag.AllRegionUnderCenters != null && ViewBag.AllRegionUnderCenters.Count > 0)
+            {
+                <canvas id="serviceCenterChart" width="200" height="200"></canvas>
+            }
+            else
+            {
+                <p class="text-muted">No service centers available.</p>
+            }
+        </div>
+            </div>
+    </div>
+            <div class="col-md-4">
+    <div class="card shadow-lg">
+        <div class="card-header bg-primary text-white text-center">
+            <h3>Branch Status</h3>
+        </div>
+        <div class="card-body">
+            @if (ViewBag.AllRegionUnderCentersBr != null && ViewBag.AllRegionUnderCentersBr.Count > 0)
+            {
+                <canvas id="serviceCenterChart2" width="200" height="200"></canvas>
+            }
+            else
+            {
+                <p class="text-muted">No service centers available.</p>
+            }
+        </div>
+    </div>
+            </div>
+    <div class="col-md-4">
+    <div class="card shadow-lg">
+        <div class="card-header bg-primary text-white text-center">
+            <h3>Region  Status</h3>
+        </div>
+        <div class="card-body">
+            @if (ViewBag.AllRegionUnderCentersRr != null && ViewBag.AllRegionUnderCentersRr.Count > 0)
+            {
+                <canvas id="serviceCenterChart3" width="200" height="200"></canvas>
+            }
+            else
+            {
+                <p class="text-muted">No service centers available.</p>
+            }
+        </div>
+    </div>
+                </div>
+  </div>
+  <h4>Branch </h4>
+     <div class="row">
+           
+            <div class="col-md-4">
+    <div class="card shadow-lg">
+        <div class="card-header bg-primary text-white text-center">
+            <h3>Branch Status</h3>
+        </div>
+        <div class="card-body">
+            @if (ViewBag.AllRegionUnderBranch != null && ViewBag.AllRegionUnderBranch.Count > 0)
+            {
+                <canvas id="branchStatusChart" width="200" height="200"></canvas>
+            }
+            else
+            {
+                <p class="text-muted">No branches available.</p>
+            }
+        </div>
+            </div>
+    </div>
+        <div class="col-md-4">
+    <div class="card shadow-lg">
+        <div class="card-header bg-primary text-white text-center">
+            <h3>Region Status</h3>
+        </div>
+        <div class="card-body">
+            @if (ViewBag.AllRegionUnderBranchRr != null && ViewBag.AllRegionUnderBranchRr.Count > 0)
+            {
+                <canvas id="branchStatusChart2" width="200" height="200"></canvas>
+            }
+            else
+            {
+                <p class="text-muted">No branches available.</p>
+            }
+        </div>
+    </div>
+        </div>
+    </div>
+
+
+  
+
+    <script>
+
+        document.addEventListener("DOMContentLoaded", function () {
+            if (typeof Chart === "undefined") {
+                console.error("Chart.js is not loaded!");
+                return;
+            }
+
+            function createPieChart(canvasId, data, label) {
+                var ctx = document.getElementById(canvasId);
+                if (!ctx) {
+                    console.error("Canvas not found:", canvasId);
+                    return;
+                }
+
+                return new Chart(ctx, {
+                    type: 'pie',
+                    data: {
+                        labels: ["Submitted", "Pending"],
+                        datasets: [{
+                            label: label,
+                            data: [data.submittedCount, data.pendingCount],
+                            backgroundColor: ['	rgb(255, 255, 15, 0.6)',
+                                ' rgb(153, 117, 117, 0.6)'],
+                            borderColor: ['rgb(255, 255, 15, 1)',
+                                'rgb(153, 117, 117, 1)'],
+                            borderWidth: 1
+                        }]
+                    },
+
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: { position: 'top' },
+                            tooltip: {
+                                callbacks: {
+                                    label: function (context) {
+                                        let label = context.label || '';
+                                        if (label) label += ': ';
+                                        return label + context.raw;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+
+            var allRegionUnderCenters = @Html.Raw(Json.Serialize(ViewBag.AllRegionUnderCenters ?? new List<object>()));
+            var serviceCenterData = {
+                submittedCount: allRegionUnderCenters.filter(b => b.status === "Submitted").length,
+                pendingCount: allRegionUnderCenters.filter(b => b.status !== "Submitted").length
+            };
+
+            var allRegionUnderBranch = @Html.Raw(Json.Serialize(ViewBag.AllRegionUnderBranch ?? new List<object>()));
+            var branchData = {
+                submittedCount: allRegionUnderBranch.filter(b => b.status === "Submitted").length,
+                pendingCount: allRegionUnderBranch.filter(b => b.status !== "Submitted").length
+            };
+
+            var allRegionUnderBranchRr = @Html.Raw(Json.Serialize(ViewBag.AllRegionUnderBranchRr ?? new List<object>()));
+            var branchDataRr = {
+                submittedCount: allRegionUnderBranchRr.filter(b => b.status === "Submitted").length,
+                pendingCount: allRegionUnderBranchRr.filter(b => b.status !== "Submitted").length
+            };
+
+            var allRegionUnderCentersBr = @Html.Raw(Json.Serialize(ViewBag.AllRegionUnderCentersBr ?? new List<object>()));
+            var serviceCenterDataBr = {
+                submittedCount: allRegionUnderCentersBr.filter(b => b.status === "Submitted").length,
+                pendingCount: allRegionUnderCentersBr.filter(b => b.status !== "Submitted").length
+            };
+
+            var allRegionUnderCentersRr = @Html.Raw(Json.Serialize(ViewBag.AllRegionUnderCentersRr ?? new List<object>()));
+            var serviceCenterDataRr = {
+                submittedCount: allRegionUnderCentersRr.filter(b => b.status === "Submitted").length,
+                pendingCount: allRegionUnderCentersRr.filter(b => b.status !== "Submitted").length
+            };
+
+            console.log("Service Center Data:", serviceCenterData);
+            console.log("Branch Data:", branchData);
+            console.log("Branch Data RR:", branchDataRr);
+            console.log("Service Center Data Br:", serviceCenterDataBr);
+            console.log("Service Center Data Rr:", serviceCenterDataRr);
+
+            if (document.getElementById("serviceCenterChart") && allRegionUnderCenters.length > 0) {
+                createPieChart("serviceCenterChart", serviceCenterData, "Service Center Status");
+            }
+
+            if (document.getElementById("serviceCenterChart2") && allRegionUnderCentersBr.length > 0) {
+                createPieChart("serviceCenterChart2", serviceCenterDataBr, "Service Center Status");
+            }
+
+            if (document.getElementById("serviceCenterChart3") && allRegionUnderCentersRr.length > 0) {
+                createPieChart("serviceCenterChart3", serviceCenterDataRr, "Service Center Status");
+            }
+
+            if (document.getElementById("branchStatusChart") && allRegionUnderBranch.length > 0) {
+                createPieChart("branchStatusChart", branchData, "Branch Status");
+            }
+
+            if (document.getElementById("branchStatusChart2") && allRegionUnderBranchRr.length > 0) {
+                createPieChart("branchStatusChart2", branchDataRr, "Branch Status");
+            }
+        });
+
+    </script>
+}
+
+
+<script src="~/js/chart.js"></script>
+<script>
+
+    document.getElementById("assessmentForm").addEventListener("submit", function (event) {
+        event.preventDefault(); // Prevent the default form submission
+
+        // Get the selected values
+        var serviceCenterId = document.getElementById("ServiceCenterId").value;
+        var fromDate = document.getElementById("FromDate").value;
+
+        // Redirect to the desired URL
+        window.location.href = "/Assessment/ViewRroAssessment?serviceCenterId=" + serviceCenterId + "&fromdate=" + fromDate;
+    });
+    function BranchOwnreview(serviceCenterId) {
+        window.location.href = "/Assessment/BranchOwnreview?serviceCenterId=" + serviceCenterId;
+    }
+
+    function BranchReview(serviceCenterId) {
+        window.location.href = "/Assessment/BranchReview?serviceCenterId=" + serviceCenterId;
+    }
+
+    function RegionReview(serviceCenterId) {
+        window.location.href = "/Assessment/RegionReview?serviceCenterId=" + serviceCenterId;
+    }
+</script>
+<style>
+    /* Styling for Both Forms */
+    .form-container {
+        background: #f8f9fa; /* Light background */
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        width: fit-content;
+        margin: 20px auto 20px 0;
+    }
+
+        /* Label Styling */
+        .form-container label {
+            font-size: 16px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        /* Dropdown Styling */
+        .form-container select {
+            padding: 8px 12px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            outline: none;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+        }
+
+            .form-container select:hover {
+                border-color: #ddc541;
+            }
+
+        /* Button Styling */
+        .form-container button {
+            background: #b10000 !important;
+            color: white;
+            font-size: 14px;
+            font-weight: bold;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+        }
+
+            .form-container button:hover {
+                background: #ddc541;
+            }
+
+    .card-header.bg-primary {
+        background-color: #212529 !important; /* Ash/Light gray background */
+        color: white; /* Text color remains white for contrast */
+    }
+
+    .card-header.bg-danger {
+        background-color: #B0B0B0 !important; /* Ash/Light gray background */
+        color: white; /* Text color remains white for contrast */
+    }
+ 
+</style>

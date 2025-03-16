@@ -1,0 +1,247 @@
+﻿@model List<rcsa.Models.assessments_pe>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    string userRole = @ViewBag.UserName; // Replace with dynamic user role if needed
+}
+<div class="container mt-4">
+
+    @{
+        int serviceCenterId = 0;
+        DateTime fromdate = DateTime.MinValue; // Initialize to a default value
+
+        if (int.TryParse(Context.Request.Query["ServiceCenterId"], out int scId))
+        {
+            serviceCenterId = scId;
+        }
+
+        if (DateTime.TryParse(Context.Request.Query["fromdate"], out DateTime parsedDate))
+        {
+            fromdate = parsedDate; // Correct assignment
+        }
+    }
+    @{
+        var alreadySubmitted = ViewBag.AlreadySubmitted as bool? ?? false;
+    }
+
+    @if (alreadySubmitted)
+    {
+        <div class="alert alert-warning">
+            You have already submitted your assessment for this date.
+        </div>
+    }
+    <h2>RRO Assessment Page</h2>
+<p><strong>Service Center ID:</strong> @serviceCenterId</p>
+    <p><strong>Selected Quarter:</strong> @fromdate</p>
+  
+
+    <div class="table-responsive mt-3">
+                <form action="@Url.Action("SaveRRoNewAnswers", "Assessment")" method="post" onsubmit="console.log('Form submitted', this);">
+                    @Html.AntiForgeryToken()
+                    <div class="table-responsive mt-3">
+         
+        <input type="hidden" id="ServiceCenterId" name="ServiceCenterId" value="@serviceCenterId" />
+                <input type="hidden" id="fromdate" name="fromdate" value="@fromdate" />
+                <label for="Date of Vist">Select Date of Vist:</label>
+                        <input type="date" id="DateofVist" name="DateofVist" required />
+                <label for="Intime">In time:</label>
+                        <input type="time" id="Intime" name="Intime" required />
+                <label for="OutTime">Out Time:</label>
+                        <input type="time" id="OutTime" name="OutTime" required />
+                 
+                        <table class="table table-striped">
+                            <thead class="table-light">
+                                <tr>
+                                    <th>Id</th>
+                                    <th>Question</th>
+                                    <th>Marks</th>
+							        <th>Answer</th>
+                                    <th>Comment</th>
+                                </tr>
+                    <tbody>
+                        @{
+                            int headingIndex = 1; // Main heading counter
+                            int index = 0; // Row index for model binding
+                        }
+
+                        @foreach (var mainHeadingGroup in Model.GroupBy(q => q.headingTitel))
+                        {
+                            int subHeadingIndex = 1; 
+                            <tr class="table-success">
+                                <td colspan="6"><strong>@headingIndex. @mainHeadingGroup.Key</strong></td>
+                            </tr>
+
+                            @foreach (var subHeadingGroup in mainHeadingGroup.GroupBy(q => q.subheadingTitel))
+                            {
+                                int questionIndex = 1; 
+                                <tr class="table-info">
+                                    <td colspan="6"><strong>@headingIndex.@subHeadingIndex @subHeadingGroup.Key</strong></td>
+                                </tr>
+
+                                @foreach (var question in subHeadingGroup)
+                                {
+                                    <tr>
+                                        <td>@headingIndex.@subHeadingIndex.@questionIndex</td>
+
+                                        <td>
+                                            @question.QuestionText
+                                            <input type="hidden" name="[@index].QuestionId" value="@question.QuestionId" />
+                                            <input type="hidden" name="[@index].QuestionText" value="@question.QuestionText" />
+                                            <input type="hidden" name="[@index].Marks" value="@question.Marks" />
+                                            <input type="hidden" name="[@index].MainHeading" value="@question.MainHeading" />
+                                            <input type="hidden" name="[@index].SubHeading" value="@question.SubHeading" />
+                                            <input type="hidden" name="[@index].headingTitel" value="@question.headingTitel" />
+                                            <input type="hidden" name="[@index].subheadingTitel" value="@question.subheadingTitel" />
+                                            <input type="hidden" name="[@index].fromdate" value="@question.fromdate" />
+                                            <input type="hidden" name="[@index].todate" value="@question.todate" />
+                                        </td>
+                                        <td>@question.Marks</td>
+                                        <td>
+                                            <div class="d-flex align-items-center">
+                                                <label class="me-3">
+                                                    <input type="radio" name="[@index].RRoAnswer" value="Yes" required />
+                                                    ✔
+                                                </label>
+                                                <label class="me-3">
+                                                    <input type="radio" name="[@index].RRoAnswer" value="NO" class="negative-answer" />
+                                                    ✖
+                                                </label>
+                                                <label>
+                                                    <input type="radio" name="[@index].RRoAnswer" value="NA" class="notapplicable-answer" />
+                                                    ⬜
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <input type="text" name="[@index].RRoComment" class="form-control comment-field" />
+                                        </td>
+                                    </tr>
+                                    index++; 
+                                    questionIndex++; 
+                                }
+
+                                subHeadingIndex++; 
+                            }
+
+                            headingIndex++; 
+                        }
+                    </tbody>
+                        </table>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Save</button>
+                </form>
+           
+        
+    </div>
+    </div>
+<script>
+
+
+    document.addEventListener("DOMContentLoaded", function () {
+        const formKey = "savedAssessmentAnswers"; 
+
+       
+        function saveToLocalStorage() {
+            let answers = {};
+            document.querySelectorAll('input[type="radio"]:checked').forEach(radio => {
+                answers[radio.name] = {
+                    value: radio.value,
+                    className: radio.className
+                };
+            });
+            document.querySelectorAll('input[type="text"]').forEach(input => {
+                answers[input.name] = input.value;
+            });
+            localStorage.setItem(formKey, JSON.stringify(answers));
+        }
+
+        // Function to load data from Local Storage
+        function loadFromLocalStorage() {
+            let savedAnswers = JSON.parse(localStorage.getItem(formKey) || "{}");
+            document.querySelectorAll('input[type="radio"]').forEach(radio => {
+                if (savedAnswers[radio.name] && savedAnswers[radio.name].value === radio.value) {
+                    radio.checked = true;
+                    // Show/hide comment field based on the value
+                    let parent = radio.closest('tr');
+                    let commentField = parent.querySelector('.comment-field');
+                    if (radio.value === "NO" || radio.value === "NA") {  // 0 = negative, 2 = not applicable
+                        commentField.style.display = 'block';
+                    } else {
+                        commentField.style.display = 'none';
+                    }
+                }
+            });
+            document.querySelectorAll('input[type="text"]').forEach(input => {
+                if (savedAnswers[input.name]) {
+                    input.value = savedAnswers[input.name];
+                }
+            });
+        }
+
+        // Function to clear Local Storage when form is submitted
+        function clearLocalStorage() {
+            localStorage.removeItem(formKey);
+        }
+
+        // Attach event listener to all radio buttons
+        document.querySelectorAll('input[type="radio"]').forEach(radio => {
+            radio.addEventListener("change", saveToLocalStorage);
+        });
+
+        // Attach event listener to text input for comment
+        document.querySelectorAll('input[type="text"]').forEach(input => {
+            input.addEventListener("change", saveToLocalStorage);
+        });
+
+        // Attach event listener to form submission
+        document.querySelector("form").addEventListener("submit", function () {
+            clearLocalStorage();
+        });
+
+        // Load saved data from local storage when page loads
+        loadFromLocalStorage();
+
+        // Show comment field if negative or notapplicable is selected
+        document.querySelectorAll('input[type="radio"]').forEach(radio => {
+            radio.addEventListener('change', function () {
+                let parent = this.closest('tr');
+                let commentField = parent.querySelector('.comment-field');
+                if (this.value === "NO" || this.value === "NA") {  // 0 = negative, 2 = not applicable
+                    commentField.style.display = 'block';
+                } else {
+                    commentField.style.display = 'none';
+                    commentField.value = ''; // Clear comment if answer is changed
+                }
+            });
+        });
+    });
+
+</script> 
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const form = document.querySelector("form");
+
+        // Confirmation before submitting
+        form.addEventListener("submit", function (event) {
+            if (!confirm("Are you sure you want to submit?")) {
+                event.preventDefault();
+            }
+        });
+
+        // Ensure comment is required when selecting 1 (✔) or 0 (✖)
+        document.querySelectorAll('input[type="radio"]').forEach(radio => {
+            radio.addEventListener("change", function () {
+                const parentRow = this.closest("tr");
+                const commentField = parentRow.querySelector(".comment-field");
+
+                if (this.value === "NA" || this.value === "NO") {
+                    commentField.setAttribute("required", "required");
+                    commentField.placeholder = "Comment is required";
+                } else {
+                    commentField.removeAttribute("required");
+                    commentField.placeholder = "";
+                }
+            });
+        });
+    });
+</script>

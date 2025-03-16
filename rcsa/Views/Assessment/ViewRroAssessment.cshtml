@@ -1,0 +1,248 @@
+﻿@model List<rcsa.Models.RROassessmentanswers>
+@{
+
+    Layout = "~/Views/Shared/_aLayout.cshtml";
+    // Replace with dynamic user role if needed
+}
+<div class="container mt-4">
+
+
+    <div class="table-responsive mt-3">
+        @if (!string.IsNullOrEmpty(ViewBag.AssessmentMessage))
+        {
+            <div class="alert alert-warning">
+                @ViewBag.AssessmentMessage
+            </div>
+        }
+        else
+        {
+            <div class="row mt-4">
+                <form>
+                    <button id="exportBtn" class="btn btn-success">Export to Excel</button>
+
+                    <div class="table-responsive mt-3">
+                        <table id="exportTable" class="table table-striped">
+                        <h5><strong>Suser:</strong> @Model.FirstOrDefault()?.Suser</h5>
+                        <h5><strong>RRO Vist date:</strong> @Model.FirstOrDefault()?.DateofVist</h5>
+                        <h5><strong>In time:</strong> @Model.FirstOrDefault()?.Intime</h5>
+                        <h5><strong>Out Time:</strong> @Model.FirstOrDefault()?.OutTime</h5>
+                        <h5><strong>Name :</strong> @Model.FirstOrDefault()?.ServiceCenterId</h5>
+                               
+                       
+                            <thead class="table-light">
+                                <tr>
+                                    <th>No.</th>
+                                    <th>Question</th>
+                                    <th>Marks</th>
+                                    <th>Answer</th>
+                                    <th></th>
+
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                @{
+                                    int index = 0;
+                                    int mainHeadingIndex = 1;
+                                    int totalScore = 0;
+                                }
+
+                                @foreach (var mainHeadingGroup in Model.GroupBy(q => q.headingTitel))
+                                {
+                                    <!-- Main Heading -->
+                                    <tr class="table-success">
+                                        <td colspan="5"><strong>@mainHeadingIndex. @mainHeadingGroup.Key</strong></td>
+                                    </tr>
+
+                                    int subHeadingIndex = 1;
+
+                                    @foreach (var subHeadingGroup in mainHeadingGroup.GroupBy(q => q.subheadingTitel))
+                                    {
+                                        <!-- Sub Heading -->
+                                        <tr class="table-info">
+                                            <td colspan="5"><strong>@mainHeadingIndex.@subHeadingIndex @subHeadingGroup.Key</strong></td>
+                                        </tr>
+
+                                        int questionIndex = 1;
+
+                                        @foreach (var question in subHeadingGroup)
+                                        {
+
+
+
+                                            <tr data-service-center-id="@question.ServiceCenterId">
+                                                <td>@mainHeadingIndex.@subHeadingIndex.@questionIndex</td>
+                                                <td>
+                                                    @question.AnswerText
+                                                    <input type="hidden" name="[@index].QuestionId" value="@question.QuestionId" />
+                                                    <input type="hidden" name="[@index].Marks" value="@question.Marks" />
+                                                    <input type="hidden" name="[@index].ServiceCenterId" value="@question.ServiceCenterId" />
+                                                    <input type="hidden" name="[@index].TotalScore" value="@question.TotalScore" />
+                                                    <input type="hidden" name="[@index].Suser" value="@question.Suser" />
+                                                    <input type="hidden" name="[@index].DateofVist" value="@question.DateofVist" />
+                                                    <input type="hidden" name="[@index].Intime" value="@question.Intime" />
+                                                    <input type="hidden" name="[@index].OutTime" value="@question.OutTime" />
+                                                    <input type="hidden" name="[@index].ServiceCenterId" value="@question.ServiceCenterId" />
+                                                  
+
+                                                </td>
+                                                <td>@question.Marks</td>
+                                                <td>
+                                                    <div class="col-md-2">
+                                                        @{
+                                                            string displayAnswer = question.RRoAnswer == "Yes" ? "Yes" :
+                                                            question.RRoAnswer == "NO" ? "No" :
+                                                            question.RRoAnswer == "NA" ? "N/A" : "";
+                                                        }
+
+                                                        <span class="answer-label @(question.RRoAnswer == "NO" || question.RRoAnswer == "NA" ? "clickable" : "")"
+                                                              data-comment="@question.RRoComment
+                                                              onclick="showComment(this)">
+                                                            @displayAnswer
+                                                        </span>
+
+
+                                                    </div>
+                                                </td>
+
+                                            </tr>
+
+                                            index++;
+                                            questionIndex++;
+                                        }
+
+                                        subHeadingIndex++;
+                                    }
+
+                                    mainHeadingIndex++;
+                                }
+                            </tbody>
+
+                            <!-- Total Score Row at the End -->
+                            <tfoot>
+                                <tr class="table-warning">
+                                    <td colspan="4" class="text-end"><strong> Total Score:</strong></td>
+                                    <td colspan="4" class="text-end"><strong></strong> @Model.FirstOrDefault()?.TotalScore</td>
+                                 
+                                </tr>
+                            </tfoot>
+                        </table>
+
+                    </div>
+
+                </form>
+
+            </div>
+        }
+    </div>
+</div>
+<style>
+    .answer-label {
+        font-weight: bold;
+        color: #333;
+        cursor: pointer;
+    }
+
+    .clickable {
+        color: red;
+        text-decoration: underline;
+    }
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.0/xlsx.full.min.js"></script>
+<script>
+    document.getElementById("exportBtn").addEventListener("click", function () {
+        var table = document.getElementById("exportTable");
+        var rows = table.querySelectorAll("tr");
+
+        var data = [];
+        var ws = XLSX.utils.aoa_to_sheet([]); // Initialize empty sheet
+        var rowIndex = 0;
+
+        rows.forEach(row => {
+            var rowData = [];
+            var isMainHeading = row.classList.contains("table-success"); // Check for main heading row
+
+            row.querySelectorAll("td, th").forEach(cell => {
+                var input = cell.querySelector("input"); // Check if there is a hidden input
+
+                if (input) {
+                    rowData.push(input.name.includes("QuestionId") ? cell.innerText.trim() : input.value);
+                } else {
+                    rowData.push(cell.innerText.trim());
+                }
+            });
+
+            data.push(rowData);
+
+            // Append row to worksheet
+            XLSX.utils.sheet_add_aoa(ws, [rowData], { origin: rowIndex });
+
+            // Apply background color to main heading rows
+            if (isMainHeading) {
+                for (let col = 0; col < rowData.length; col++) {
+                    let cellRef = XLSX.utils.encode_cell({ r: rowIndex, c: col });
+                    if (!ws[cellRef]) ws[cellRef] = {};
+                    ws[cellRef].s = { fill: { fgColor: { rgb: "FFFF00" } } }; // Yellow background
+                }
+            }
+
+            rowIndex++;
+        });
+
+        // Create workbook
+        var wb = XLSX.utils.book_new();
+        XLSX.utils.book_append_sheet(wb, ws, "Assessment Report");
+
+        // Download file
+        XLSX.writeFile(wb, "Assessment_Report.xlsx");
+    });
+</script>
+
+
+<script>
+
+
+    function checkBranchAnswer(radio) {
+        let selectedValue = radio.value;
+        let index = radio.name.match(/\d+/)[0]; // Extract the index from the name attribute
+        let commentBox = document.getElementById("comment-" + index);
+
+        if (selectedValue === "0" || selectedValue === "2") {
+            let existingComment = commentBox.value.trim(); // Get existing comment
+
+            let userComment = prompt("Please enter a comment for this answer:", existingComment); // Pre-fill with existing comment
+            if (userComment !== null) {
+                commentBox.value = userComment; // Update the textarea with the new comment
+            }
+        }
+    }
+    function showComment(element) {
+        let comment = element.getAttribute("data-comment");
+        if (comment) {
+            alert("Comment: " + comment);
+        }
+    }
+    $(document).ready(function () {
+        $("#searchForm").submit(function (event) {
+            event.preventDefault(); // Prevent form from reloading the page
+
+            var serviceCenterId = $("#ServiceCenterId").val(); // Get input value
+
+            $.ajax({
+                url: "/Assessment/Ownreport",
+                type: "GET",
+                data: { ServiceCenterId: serviceCenterId },
+                success: function (response) {
+                    $("#resultTable").html(response); // Load response into the div
+                },
+                error: function () {
+                    $("#resultTable").html("<p style='color: red;'>Error loading data.</p>");
+                }
+            });
+        });
+    });
+
+
+</script>
+
+

@@ -1,0 +1,476 @@
+﻿@{
+    bool isVisible = true;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="~/css/bootstrap-icons.css">
+    <link rel="stylesheet" href="~/css/bootstrap.min.css">
+    <style>
+        :root {
+            --primary-gold: #f4b700;
+            --primary-red: #b10000;
+            --accent-dark: #2c2c2c;
+            --secondary-gold: #ffd700;
+            --secondary-red: #d32f2f;
+            --neutral-100: #f8f9fa;
+            --neutral-700: #495057;
+            --neutral-900: #212529;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            background: var(--neutral-100);
+            min-height: 100vh;
+            color: var(--neutral-900);
+        }
+
+        /* Modern Navbar */
+        .navbar-custom {
+            background: linear-gradient(135deg, var(--primary-gold) 25%, var(--primary-red) 50%);
+            height: 80px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            padding: 0 2rem;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .navbar-brand {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: rgba(255, 255, 255, 0.95) !important;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            transition: opacity 0.3s ease;
+        }
+
+            .navbar-brand img {
+                height: 50px;
+                filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+            }
+
+        /* User Info Section */
+        .user-info {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
+            .user-info p {
+                margin: 0;
+                color: rgba(255, 255, 255, 0.95) !important;
+                font-size: 1rem;
+                font-weight: 600;
+            }
+
+            .user-info .btn-logout {
+                background: rgba(255, 255, 255, 0.1);
+                border: 2px solid rgba(255, 255, 255, 0.2);
+                color: white;
+                border-radius: 8px;
+                padding: 0.5rem 1.25rem;
+                transition: all 0.3s ease;
+                text-decoration: none;
+                display: flex;
+                align-items: center;
+                gap: 0.5rem;
+            }
+
+                .user-info .btn-logout:hover {
+                    background: rgba(255, 255, 255, 0.2);
+                    transform: translateY(-1px);
+                }
+
+        /* Modern Glassmorphism Sidebar */
+        .sidebar {
+            width: 280px;
+            height: calc(100vh - 80px);
+            position: fixed;
+            top: 80px;
+            left: 0;
+            background: rgba(44, 44, 44, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1.5rem 1rem;
+            box-shadow: 8px 0 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border-right: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+            .sidebar a {
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+                padding: 1rem 1.5rem;
+                margin: 0.5rem 0;
+                color: rgba(255, 255, 255, 0.85) !important;
+                text-decoration: none;
+                border-radius: 12px;
+                transition: all 0.3s ease;
+                font-weight: 500;
+                position: relative;
+                overflow: hidden;
+            }
+
+                .sidebar a::before {
+                    content: '';
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    height: 100%;
+                    width: 3px;
+                    background: var(--primary-gold);
+                    transform: scaleY(0);
+                    transition: transform 0.3s ease;
+                }
+
+                .sidebar a:hover {
+                    background: rgba(244, 183, 0, 0.1);
+                    transform: translateX(8px);
+                    color: var(--primary-gold) !important;
+                }
+
+                    .sidebar a:hover::before {
+                        transform: scaleY(1);
+                    }
+
+                .sidebar a i {
+                    width: 24px;
+                    font-size: 1.2rem;
+                    transition: color 0.3s ease;
+                }
+
+                .sidebar a.active {
+                    background: rgba(244, 183, 0, 0.15);
+                    color: var(--primary-gold) !important;
+                }
+
+                    .sidebar a.active::before {
+                        transform: scaleY(1);
+                    }
+
+        /* Main Content Area */
+        .content {
+            margin-left: 300px;
+            margin-top: 100px;
+            padding: 2rem;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05);
+            min-height: calc(100vh - 120px);
+            margin-right: 2rem;
+            transition: margin-left 0.3s ease;
+        }
+
+        /* Modern Dashboard Cards */
+        .dashboard-card {
+            background: white;
+            border-radius: 16px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: none;
+            position: relative;
+            overflow: hidden;
+        }
+
+            .dashboard-card::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 4px;
+                height: 100%;
+                background: linear-gradient(180deg, var(--primary-gold), var(--primary-red));
+            }
+
+            .dashboard-card:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
+            }
+
+        .card-title {
+            color: var(--neutral-900);
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        /* Enhanced Table Design */
+        .custom-table {
+            --table-accent: rgba(244, 183, 0, 0.05);
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 16px rgba(0, 0, 0, 0.05);
+        }
+
+            .custom-table th {
+                background: linear-gradient(135deg, var(--primary-gold), var(--primary-red));
+                color: white;
+                padding: 1rem;
+                font-weight: 600;
+                text-align: left;
+                position: relative;
+            }
+
+                .custom-table th::after {
+                    content: '';
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 2px;
+                    background: rgba(255, 255, 255, 0.1);
+                }
+
+            .custom-table td {
+                padding: 1rem;
+                border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+                background: white;
+                transition: background 0.3s ease;
+            }
+
+            .custom-table tr:hover td {
+                background: var(--table-accent);
+            }
+
+        /* Modern Status Indicators */
+        .status-indicator {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.875rem;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            background: rgba(244, 183, 0, 0.1);
+            color: var(--neutral-900);
+        }
+
+            .status-indicator::before {
+                content: '';
+                width: 10px;
+                height: 10px;
+                border-radius: 50%;
+                flex-shrink: 0;
+            }
+
+        .status-active {
+            background: rgba(40, 167, 69, 0.1);
+            color: #28a745;
+        }
+
+            .status-active::before {
+                background: #28a745;
+            }
+
+        .status-pending {
+            background: rgba(244, 183, 0, 0.1);
+            color: var(--primary-gold);
+        }
+
+            .status-pending::before {
+                background: var(--primary-gold);
+            }
+
+        /* Responsive Design */
+        @@media (max-width: 1200px) {
+            .sidebar {
+                transform: translateX(-100%);
+                z-index: 1000;
+            }
+
+                .sidebar.active {
+                    transform: translateX(0);
+                }
+
+            .content {
+                margin-left: 2rem;
+            }
+
+            .navbar-brand span {
+                display: none;
+            }
+        }
+
+        /* Floating Action Button */
+        .fab {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: var(--primary-gold);
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 24px rgba(244, 183, 0, 0.2);
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+            .fab:hover {
+                transform: scale(1.1) rotate(90deg);
+            }
+
+        @@media (max-width: 1200px) {
+            .fab {
+                display: flex;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Floating Action Button -->
+    <button class="fab text-white">
+        <i class="bi bi-list" style="font-size: 1.5rem;"></i>
+    </button>
+
+    <!-- Top Navigation Bar -->
+    <nav class="navbar navbar-custom">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                @* <img src="/images/logo-modern.png" alt="Bank Logo"> *@
+                <span>@ViewBag.BranchName</span>
+            </a>
+            <div class="user-info">
+                <p class="m-0">Welcome, <strong>@ViewBag.UserName</strong></p>
+                <p class="m-0">@ViewBag.Branch_type_code</p>
+                <a href="/Home/Logout" class="btn-logout" id="logout-btn">
+                    <span>Logout</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Side Navigation -->
+    <div class="sidebar">
+        @if (ViewBag.Branch_type_code == "DEPT")
+        {
+            <a href="/Home/AdminDashboard"><i class="bi bi-bar-chart"></i> Dashboard</a>
+            <a href="/Assessment"><i class="bi bi-journal-text"></i> Add Assessment</a>
+            <a href="/Home/HeadingManagement"><i class="bi bi-list-task"></i> Add Headings</a>
+            <a href="/Assessment/AssessmentEdit"><i class="bi bi-journal-text"></i> Assessment Edit</a>
+            <a href="/Assessment/AdminReview"><i class="bi bi-eye"></i> View Assessment</a>
+            <a href="/Reports/Index"><i class="bi bi-graph-up"></i> Reports</a>
+        }
+        @if (ViewBag.Branch_type_code == "SERV_CEN")
+        {
+            <a href="/Home/AdminDashboard"><i class="bi bi-bar-chart"></i> Dashboard</a>
+            <a href="/Assessment/SericeCenterAssesment"><i class="bi bi-journal-check"></i> Assessment</a>
+
+
+
+        }
+        @if (ViewBag.Branch_type_code == "BRANCH")
+        {
+            <a href="/Home/AdminDashboard"><i class="bi bi-bar-chart"></i> Dashboard</a>
+            <a href="/Assessment/SericeCenterAssesment"><i class="bi bi-journal-check"></i> Assessment</a>
+            <a href="/Assessment/OldBranchOwnreview"><i class="bi bi-clock-history"></i> History Review</a>
+        }
+        @if (ViewBag.Branch_type_code == "REGION")
+        {
+            <a href="/Home/AdminDashboard"><i class="bi bi-bar-chart"></i> Dashboard</a>
+            <a href="/Assessment/RegionOwnReport"><i class="bi bi-eye"></i> Review Assessment</a>
+        }
+
+        <a href="/Help/Index"><i class="bi bi-question-circle"></i> Help</a>
+    </div>
+
+    <!-- Logout Confirmation Modal -->
+    <div class="modal fade" id="logoutModal" tabindex="-1" aria-labelledby="logoutModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="logoutModalLabel">Logout</h5>
+                    @* <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> *@
+                </div>
+                <div class="modal-body">
+                    Are you sure you want to logout?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <a href="/Home/Logout" id="confirmLogout" class="btn btn-danger">Logout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="content">
+        @RenderBody()
+    </main>
+
+    <script src="~/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Modern JavaScript enhancements
+        document.addEventListener('DOMContentLoaded', function() {
+            // Sidebar toggle for mobile
+            const fab = document.querySelector('.fab');
+            const sidebar = document.querySelector('.sidebar');
+
+            fab.addEventListener('click', () => {
+                sidebar.classList.toggle('active');
+                fab.style.transform = sidebar.classList.contains('active')
+                    ? 'rotate(180deg) scale(1.1)'
+                    : '';
+            });
+
+            // Dynamic active state for sidebar links
+            const currentPath = window.location.pathname;
+            document.querySelectorAll('.sidebar a').forEach(link => {
+                if (link.pathname === currentPath) {
+                    link.classList.add('active');
+                }
+            });
+
+            // Smooth scroll behavior
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+
+            // Table row hover effect
+            document.querySelectorAll('.custom-table tr').forEach(row => {
+                row.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateX(4px)';
+                });
+                row.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateX(0)';
+                });
+            });
+        const logoutBtn = document.getElementById('logout-btn');
+            const logoutModal = new bootstrap.Modal(document.getElementById('logoutModal'));
+
+            logoutBtn.addEventListener('click', function(event) {
+                event.preventDefault(); // Prevent direct navigation
+                logoutModal.show(); // Show modal
+            });
+        });
+    </script>
+</body>
+</html>
